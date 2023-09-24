@@ -18,6 +18,11 @@ needed to achieve this. This bring it down to one.
 
 WIP!! Designed to emulate bash's `cal` command. Very little progress here.
 
+### Get-DirectorySize.psm1
+
+Gives you the size of a given directory. Can take multiple directories. Provides
+size options from bytes to terabytes; defaults to megabytes.
+
 ### Get-YouTubePlaylistTime.psm1
 
 Using the YouTube Data API, takes a YouTube playlist and calculates the amount
