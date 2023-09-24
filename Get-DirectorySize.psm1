@@ -10,7 +10,8 @@ function Get-DirectorySize {
         .PARAMETER Size
             Specifies the format of the size output
         .PARAMETER Value
-            Returns the value only rather than a formatted string
+            Returns the value only rather than a hash table with
+            formatted strings
         .OUTPUTS
             If -Value is set, returns a System.Double
             Otherwise, returns a System.String
@@ -48,7 +49,7 @@ function Get-DirectorySize {
                 $retVal += $evalSize
             } else {
                 Write-Debug "$($_.Name), $evalSize"
-                $retVal.Add($_.Name, $evalSize)
+                $retVal.Add($_.Name, $evalSize.ToString("0.###"))
             }
         }
     }
@@ -59,3 +60,5 @@ function Get-DirectorySize {
         return $retVal
     }
 }
+
+Set-Alias -Name gds -Value Get-DirectorySize
