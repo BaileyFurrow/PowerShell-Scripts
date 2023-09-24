@@ -45,7 +45,7 @@ function Get-YouTubePlaylistTime {
     process {
         $ytApi = @{
             baseURL = "https://youtube.googleapis.com/youtube/v3/";
-            key = ""
+            key = Get-Content ./.private/GoogleKey.txt -Raw
         }
         $ytApi.pListItems = $ytApi.baseURL + "playlistItems?key=" + $ytApi.key + "&part=contentDetails&maxResults=50&playlist_id="
         $ytApi.pList = $ytApi.baseURL + "playlists?key=" + $ytApi.key + "&part=snippet&maxResult=1&id="
