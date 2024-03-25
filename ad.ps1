@@ -3,11 +3,15 @@
 function Get-Phone {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory, ParameterSetName="Username")]
+        [Parameter(Mandatory, Position=0, ParameterSetName="Username")]
         [string] $Identity,
 
         [Parameter(Mandatory, ParameterSetName="Name")]
         [string] $Name,
+
+        # Only return value
+        [Parameter()]
+        [switch] $Value,
 
         # Select default telephone number
         [Parameter()]
@@ -74,8 +78,11 @@ function Get-Phone {
         if ($ipPhone) {
             $result.Add('IP Phone', $user.ipPhone)
         }
-
-        return $result
+        if ($Value) {
+            return $result[2..$result.count]
+        } else {
+            return $result
+        }
     }
 }
 
@@ -83,14 +90,19 @@ function Get-Office {
     param (
         [CmdletBinding()]
 
-        [Parameter(Mandatory, ParameterSetName="Username")]
+        [Parameter(Mandatory, Position=0, ParameterSetName="Username")]
         [string]
         $Identity,
         
         # Search by name
         [Parameter(Mandatory, ParameterSetName="Name")]
         [string]
-        $Name
+        $Name,
+
+        # Return value only
+        [Parameter()]
+        [switch]
+        $Value
     )
 
     if ($Identity) {
@@ -104,6 +116,10 @@ function Get-Office {
     $result.Add("Username", $user.SamAccountName)
     $result.Add("Office", $user.physicalDeliveryOfficeName)
 
-    return $result
+    if ($Value) {
+        return $result[2..$result.count]
+    } else {
+        return $result
+    }
     
 }
