@@ -20,8 +20,8 @@ function Get-DirectorySize {
         [PSDefaultValue(Help='Current directory')]
         [Parameter(Position=0,ValueFromPipeline)]
         [ValidateScript(
-            {Test-Path $_},
-            ErrorMessage = "`n{0} is not a valid path. Validate that the path exists and try again."
+            {Test-Path $_}
+            # ErrorMessage = "`n{0} is not a valid path. Validate that the path exists and try again."
         )]
         [System.IO.DirectoryInfo[]]$Path = $PWD.Path,
 
