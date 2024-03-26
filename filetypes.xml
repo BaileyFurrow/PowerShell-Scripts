@@ -1,0 +1,209 @@
+<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
+  <Obj RefId="0">
+    <TN RefId="0">
+      <T>System.Collections.Hashtable</T>
+      <T>System.Object</T>
+    </TN>
+    <DCT>
+      <En>
+        <S N="Key">documents</S>
+        <Obj N="Value" RefId="1">
+          <TN RefId="1">
+            <T>System.Object[]</T>
+            <T>System.Array</T>
+            <T>System.Object</T>
+          </TN>
+          <LST>
+            <S>*.rtf</S>
+            <S>*.doc*</S>
+            <S>*.dot*</S>
+            <S>*.epub</S>
+            <S>*.mobi</S>
+            <S>*.odt</S>
+            <S>*.pdf</S>
+            <S>*.tex</S>
+            <S>*.xls*</S>
+            <S>*.ppt*</S>
+            <S>*.bib</S>
+            <S>*.ris</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">data</S>
+        <Obj N="Value" RefId="2">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.txt</S>
+            <S>*.csv</S>
+            <S>*.md</S>
+            <S>*.log</S>
+            <S>*.text</S>
+            <S>*.info</S>
+            <S>*.hlp</S>
+            <S>*.json</S>
+            <S>*.ini</S>
+            <S>*.inf</S>
+            <S>*.tsv</S>
+            <S>*.xml</S>
+            <S>*.yaml</S>
+            <S>*.yml</S>
+            <S>*.dat</S>
+            <S>*.db</S>
+            <S>*.mdb</S>
+            <S>*.accdb</S>
+            <S>*.sql</S>
+            <S>*.sqlite</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">code</S>
+        <Obj N="Value" RefId="3">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.c</S>
+            <S>*.cpp</S>
+            <S>*.cs</S>
+            <S>*.csproj</S>
+            <S>*.cc</S>
+            <S>*.go</S>
+            <S>*.h</S>
+            <S>*.hpp</S>
+            <S>*.java</S>
+            <S>*.js</S>
+            <S>*.lisp</S>
+            <S>*.php</S>
+            <S>*.r</S>
+            <S>*.rs</S>
+            <S>*.sln</S>
+            <S>*.py</S>
+            <S>*.pl</S>
+            <S>*.rb</S>
+            <S>*.xsl</S>
+            <S>*.html</S>
+            <S>*.htm</S>
+            <S>*.css</S>
+            <S>*.xhtml</S>
+            <S>*.xht</S>
+            <S>*.mhtml</S>
+            <S>*.mht</S>
+            <S>*.asp</S>
+            <S>*.aspx</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">video</S>
+        <Obj N="Value" RefId="4">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.3gp</S>
+            <S>*.avi</S>
+            <S>*.flv</S>
+            <S>*.m4v</S>
+            <S>*.mp4</S>
+            <S>*.mkv</S>
+            <S>*.mov</S>
+            <S>*.mpg</S>
+            <S>*.mpeg</S>
+            <S>*.swf</S>
+            <S>*.drp</S>
+            <S>*.ppj</S>
+            <S>*.prproj</S>
+            <S>*.wlmp</S>
+            <S>*.veg</S>
+            <S>*.webm</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">audio</S>
+        <Obj N="Value" RefId="5">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.aiff</S>
+            <S>*.au</S>
+            <S>*.aup3</S>
+            <S>*.cdda</S>
+            <S>*.wav</S>
+            <S>*.flac</S>
+            <S>*.wma</S>
+            <S>*.mp3</S>
+            <S>*.m4a</S>
+            <S>*.aac</S>
+            <S>*.ogg</S>
+            <S>*.mod</S>
+            <S>*.nsf</S>
+            <S>*.mid</S>
+            <S>*.midi</S>
+            <S>*.ftm</S>
+            <S>*.gp</S>
+            <S>*.ly</S>
+            <S>*.mus</S>
+            <S>*.musx</S>
+            <S>*.mxl</S>
+            <S>*.mscx</S>
+            <S>*.mscz</S>
+            <S>*.sib</S>
+            <S>*.als</S>
+            <S>*.alc</S>
+            <S>*.alp</S>
+            <S>*.aup</S>
+            <S>*.band</S>
+            <S>*.cpr</S>
+            <S>*.drm</S>
+            <S>*.flp</S>
+            <S>*.logic</S>
+            <S>*.mmp</S>
+            <S>*.mmpz</S>
+            <S>*.ptx</S>
+            <S>*.ptf</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">images</S>
+        <Obj N="Value" RefId="6">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.psd</S>
+            <S>*.xcf</S>
+            <S>*.png</S>
+            <S>*.jpg</S>
+            <S>*.jpeg</S>
+            <S>*.gif</S>
+            <S>*.webp</S>
+            <S>*.bmp</S>
+          </LST>
+        </Obj>
+      </En>
+      <En>
+        <S N="Key">arch_exec</S>
+        <Obj N="Value" RefId="7">
+          <TNRef RefId="1" />
+          <LST>
+            <S>*.7z</S>
+            <S>*.appx</S>
+            <S>*.bin</S>
+            <S>*.bz2</S>
+            <S>*.cab</S>
+            <S>*.dmg</S>
+            <S>*.deb</S>
+            <S>*.exe</S>
+            <S>*.gz</S>
+            <S>*.jar</S>
+            <S>*.lz</S>
+            <S>*.rar</S>
+            <S>*.xz</S>
+            <S>*.zip</S>
+            <S>*.iso</S>
+            <S>*.dd</S>
+            <S>*.img</S>
+            <S>*.msi</S>
+          </LST>
+        </Obj>
+      </En>
+    </DCT>
+  </Obj>
+</Objs>
