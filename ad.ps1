@@ -1,6 +1,6 @@
 # This file contains many AD-related commands to make certain AD actions and queries easier and faster to type.
 
-function Get-Phone {
+function Get-ADPhone {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory, Position=0, ParameterSetName="Username")]
@@ -86,7 +86,7 @@ function Get-Phone {
     }
 }
 
-function Get-Office {
+function Get-ADOffice {
     param (
         [CmdletBinding()]
 
