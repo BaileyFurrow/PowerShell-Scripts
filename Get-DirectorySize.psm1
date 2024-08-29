@@ -7,8 +7,8 @@ function Get-DirectorySize {
             the Length parameter), and returns the value in a specified format.
         .PARAMETER Path
             Specifies the directory
-        .PARAMETER Size
-            Specifies the format of the size output
+        .PARAMETER SizeFormat
+            Specifies the format of the size preOutput
         .PARAMETER Value
             Returns the value only rather than a hash table with
             formatted strings
@@ -25,39 +25,65 @@ function Get-DirectorySize {
         )]
         [System.IO.DirectoryInfo[]]$Path = $PWD.Path,
 
-        [ValidateSet('B','KB','MB','GB','TB')]
-        [PSDefaultValue(Help='MB')]
-        [string]$Size = 'MB',
-
-        [switch]$Value
+        [ValidateSet('B','KB','MB','GB','TB','Auto')]
+        [PSDefaultValue(Help='Auto')]
+        [string]$SizeFormat = 'Auto'
     )
     begin {
-        $retVal = If ($Value) {@()} Else {@{}}
+        $preOutput = @()
         Write-Debug "`$Value = $Value"
-        Write-Debug "`$retVal type before is $($retVal.GetType())"
+        Write-Debug "`$preOutput type before is $($preOutput.GetType())"
     }
     process {
-        $Path | foreach {
-            $dirSize = Get-ChildItem $_ -Recurse | Where length -ne $null |
-                Select-Object -ExpandProperty Length | Measure-Object -sum |
-                Select-Object -ExpandProperty Sum 
-            $evalSize = Invoke-Expression "$($dirSize.toString())/1$Size"
-            Write-Debug "`$_ = $_"
-            Write-Debug "`$dirSize = $dirSize"
-            Write-Debug "`$evalSize = $evalSize`n"
-            if ($Value) {
-                $retVal += $evalSize
-            } else {
-                Write-Debug "$($_.Name), $evalSize"
-                $retVal.Add($_.Name, $evalSize.ToString("0.###"))
+        $Path | ForEach-Object {
+            $obj = [PSCustomObject]@{
+                PSTypeName = "Custom.DirectorySize"
+                Name = $_
+                Length = Get-ChildItem $_ -Recurse | Where-Object length -ne $null |
+                    Select-Object -ExpandProperty Length | Measure-Object -sum |
+                    Select-Object -ExpandProperty Sum
             }
+            # $evalSize = Invoke-Expression "$($dirSize.toString())/1$SizeFormat"
+            Write-Debug "`$_ = $_"
+            # Write-Debug "`$evalSize = $evalSize`n"
+                # Write-Debug "$($_.Name), $evalSize"
+            Add-Member -InputObject $obj -MemberType NoteProperty -Name KB -Value $($obj.Length/1kb)
+            Add-Member -InputObject $obj -MemberType NoteProperty -Name MB -Value $($obj.Length/1mb)
+            Add-Member -InputObject $obj -MemberType NoteProperty -Name GB -Value $($obj.Length/1gb)
+            Add-Member -InputObject $obj -MemberType NoteProperty -Name TB -Value $($obj.Length/1tb)
+            $preOutput += $obj
         }
     }
     end {
-        Write-Verbose $retVal
-        Write-Debug "`$retVal type after is $($retVal.GetType())"
-        # return ($retVal | Format-Table -Property Name,@{Label="Size"; Expression={$_.Value}})
-        return $retVal
+        if ($SizeFormat -eq "Auto") {
+            $avg = $preOutput | Measure-Object -Property Length -Average | Select-Object -ExpandProperty Average
+            $SizeType = switch ($avg) {
+                {$_ -ge 1gb} {
+                    "GB"
+                    continue
+                }
+                {$_ -ge 1mb} {
+                    "MB"
+                    continue
+                }
+                {$_ -ge 1kb} {
+                    "KB"
+                    continue
+                }
+                Default {
+                    "Length"
+                }
+            }
+            $output = @()
+            $preOutput | ForEach-Object {
+                $outObj = $_
+                Add-Member -InputObject $outObj -MemberType AliasProperty -Name "Size ($SizeType)" -Value $SizeType -Force
+                $output += $outObj
+            }
+        }
+        Remove-TypeData -TypeName Custom.DirectorySize -ErrorAction SilentlyContinue
+        Update-TypeData -TypeName Custom.DirectorySize -DefaultDisplayPropertySet "Name","Size ($SizeType)"
+        return $output
     }
 }
 

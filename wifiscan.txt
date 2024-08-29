@@ -1,0 +1,1138 @@
+ 
+Interface name : Wi-Fi 
+There are 33 networks currently visible. 
+
+SSID 1 : Linksys02742
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : e8:9f:80:a1:84:ea
+         Signal             : 36%  
+         Radio type         : 802.11ac
+         Band               : 2.4 GHz
+         Channel            : 9 
+         Bss Load:
+             Connected Stations:         2
+             Channel Utilization:        64 (25 %)
+             Medium Available Capacity:  31250 (1000000 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 2 : 
+    Network type            : Infrastructure
+    Authentication          : WPA2-Enterprise
+    Encryption              : CCMP 
+    BSSID 1                 : 94:6a:77:2a:e7:3e
+         Signal             : 39%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 2                 : 88:9e:68:1f:4a:ed
+         Signal             : 39%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 3                 : 88:9e:68:1f:4a:ef
+         Signal             : 39%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 4                 : 94:6a:77:2a:e7:40
+         Signal             : 45%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 5                 : 1e:51:a4:54:0b:3e
+         Signal             : 51%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 6                 : 54:a6:5c:47:6e:33
+         Signal             : 57%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 7                 : aa:06:c3:ca:2c:74
+         Signal             : 57%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        53 (20 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 8                 : a6:70:5d:52:ff:d7
+         Signal             : 57%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 9                 : ae:70:5d:df:dc:12
+         Signal             : 60%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 10                 : a6:70:5d:90:a2:2a
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 11                 : b6:70:5d:90:a2:2a
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 12                 : 88:9e:68:fd:58:4b
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 13                 : 88:9e:68:1f:4a:e5
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 14                 : 96:04:e3:83:85:c4
+         Signal             : 63%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        171 (67 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 15                 : a6:70:5d:df:dc:12
+         Signal             : 66%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 16                 : 94:6a:77:2a:e7:48
+         Signal             : 69%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 17                 : ba:5e:71:35:79:f9
+         Signal             : 69%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 11 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        99 (38 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 18                 : 7e:8f:e0:b5:6b:fb
+         Signal             : 69%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 19                 : ba:5e:71:35:79:fb
+         Signal             : 72%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 11 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        99 (38 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 20                 : 54:a6:5c:47:6e:29
+         Signal             : 72%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 21                 : 3e:51:a4:54:0b:3d
+         Signal             : 72%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 6 11 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 22                 : 1e:51:a4:54:0b:3d
+         Signal             : 75%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 6 11 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 23                 : b6:70:5d:90:a2:2b
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 24                 : ae:70:5d:90:a2:2b
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 25                 : da:31:34:7d:ed:13
+         Signal             : 77%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 26                 : ae:4c:a5:62:82:aa
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        135 (52 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 27                 : b2:06:c3:ca:2c:75
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 10 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        30 (11 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 28                 : 94:6a:77:2a:e7:3c
+         Signal             : 79%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 29                 : ae:70:5d:ac:b1:9a
+         Signal             : 81%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 30                 : ae:4c:a5:5b:82:af
+         Signal             : 85%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        114 (44 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 31                 : ae:4c:a5:5b:82:ad
+         Signal             : 85%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        114 (44 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 32                 : ae:4c:a5:5b:82:a9
+         Signal             : 85%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        114 (44 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 33                 : 54:a6:5c:42:a4:c3
+         Signal             : 89%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 34                 : 54:a6:5c:42:a4:c5
+         Signal             : 90%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 35                 : 54:a6:5c:42:a4:c7
+         Signal             : 90%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 3 : The GR8 Escape
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 34:98:b5:de:77:60
+         Signal             : 39%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 153 
+         Bss Load:
+             Connected Stations:         3
+             Channel Utilization:        15 (5 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 4 : TheColemans
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 88:9e:68:1f:4a:ea
+         Signal             : 39%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 5 : NETGEAR17-5G
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 08:36:c9:47:1e:44
+         Signal             : 42%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 153 
+         Bss Load:
+             Connected Stations:         3
+             Channel Utilization:        65 (25 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 6 : SwaTT-5G
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : dc:ef:09:fe:3d:6c
+         Signal             : 42%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 153 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 7 : xfinitywifi
+    Network type            : Infrastructure
+    Authentication          : Open
+    Encryption              : None 
+    BSSID 1                 : 0e:51:a4:54:0b:3e
+         Signal             : 42%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : 6e:8f:e0:b5:6b:fb
+         Signal             : 54%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 3                 : ba:5e:71:3c:79:f9
+         Signal             : 57%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        143 (56 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Colocated APs:    : 1
+            BSSID: b8:5e:71:43:79:fa,  Band: 6 GHz,  Channel: 37
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 4                 : ea:0e:83:d2:2a:41
+         Signal             : 60%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 5                 : 94:6a:77:2a:e7:45
+         Signal             : 60%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 6                 : aa:70:5d:90:a2:2b
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 7                 : ae:4c:a5:62:82:af
+         Signal             : 78%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        135 (52 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 8                 : aa:70:5d:ac:b1:9a
+         Signal             : 80%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 9                 : 54:a6:5c:42:a4:cc
+         Signal             : 87%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 10                 : aa:70:5d:3b:61:32
+         Signal             : 89%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 8 : Xfinity Mobile
+    HESSID                  : 11:22:33:44:55:66
+    Network type            : Infrastructure
+    Authentication          : WPA2-Enterprise
+    Encryption              : CCMP 
+    BSSID 1                 : b2:70:5d:52:ff:d8
+         Signal             : 45%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : 8e:8f:e0:b5:6b:fb
+         Signal             : 54%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 3                 : 94:6a:77:2a:e7:47
+         Signal             : 57%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        103 (40 %)
+             Medium Available Capacity:  65535 (2097120 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 4                 : f2:0e:83:d2:2a:41
+         Signal             : 57%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        55 (21 %)
+             Medium Available Capacity:  65535 (2097120 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 5                 : b2:70:5d:90:a2:2b
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        169 (66 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 6                 : ae:4c:a5:62:82:a9
+         Signal             : 78%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        135 (52 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 7                 : b2:70:5d:ac:b1:9a
+         Signal             : 81%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 8                 : 54:a6:5c:42:a4:ce
+         Signal             : 87%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        129 (50 %)
+             Medium Available Capacity:  65535 (2097120 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 9                 : b2:70:5d:3b:61:32
+         Signal             : 89%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 9 : Wolfpack_1 5GHz
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : e0:46:ee:01:56:84
+         Signal             : 45%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 153 
+         Bss Load:
+             Connected Stations:         3
+             Channel Utilization:        114 (44 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 10 : only the family
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : fc:51:a4:54:0b:3e
+         Signal             : 45%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : fc:51:a4:54:0b:3d
+         Signal             : 72%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 11 : SriHome
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 54:a6:5c:47:6e:2e
+         Signal             : 51%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 2                 : 54:a6:5c:47:6e:26
+         Signal             : 66%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 12 : NETGEAR12-5G
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 94:18:65:26:54:de
+         Signal             : 54%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 153 
+         Bss Load:
+             Connected Stations:         4
+             Channel Utilization:        89 (34 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 13 : skemiflakes
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : a8:70:5d:52:ff:d7
+         Signal             : 57%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 14 : TP-Link_2C74_5G
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : c0:06:c3:ca:2c:72
+         Signal             : 57%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         Bss Load:
+             Connected Stations:         5
+             Channel Utilization:        53 (20 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 15 : Meow
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : a8:70:5d:df:dc:12
+         Signal             : 60%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 16 : Will&Summer2.4
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 88:9e:68:fd:58:4a
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 17 : NETGEAR17
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 08:36:c9:47:1e:43
+         Signal             : 63%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         Bss Load:
+             Connected Stations:         2
+             Channel Utilization:        101 (39 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 18 : wzap16313027
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 7c:78:b2:b2:b7:c9
+         Signal             : 66%  
+         Radio type         : 802.11n
+         Band               : 5 GHz
+         Channel            : 149 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) :
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 19 : SwaTT
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : dc:ef:09:fe:3d:6b
+         Signal             : 66%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 20 : Davis
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 94:6a:77:2a:e7:43
+         Signal             : 69%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 2                 : 94:6a:77:2a:e7:3b
+         Signal             : 77%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 21 : Rbond007
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 5c:8f:e0:b5:6b:fb
+         Signal             : 69%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 36 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : 5c:8f:e0:b5:6b:f6
+         Signal             : 76%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 22 : Richmomd55
+    Network type            : Infrastructure
+    Authentication          : WPA3-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 96:04:e3:83:85:c1
+         Signal             : 69%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Details            :  (H2E Not supported) 
+         Bss Load:
+             Connected Stations:         0
+             Channel Utilization:        171 (67 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Colocated APs:    : 2
+            BSSID: 94:04:e3:91:85:c6,  Band: 6 GHz,  Channel: 69
+            BSSID: 94:04:e3:91:85:c3,  Band: 6 GHz,  Channel: 69
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 23 : CUSH
+    Network type            : Infrastructure
+    Authentication          : WPA3-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : ba:5e:71:35:79:fe
+         Signal             : 69%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 11 
+         Details            :  (H2E Not supported) 
+         Bss Load:
+             Connected Stations:         1
+             Channel Utilization:        92 (36 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Colocated APs:    : 2
+            BSSID: b8:5e:71:43:79:fb,  Band: 6 GHz,  Channel: 37
+            BSSID: b8:5e:71:43:79:f8,  Band: 6 GHz,  Channel: 37
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 24 : home_br
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : f4:0e:83:d2:2a:41
+         Signal             : 69%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 2                 : f4:0e:83:d2:2a:40
+         Signal             : 77%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 25 : DiegoWiFi
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : a8:70:5d:90:a2:2b
+         Signal             : 76%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 26 : TP-Link_2C74
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : c0:06:c3:ca:2c:73
+         Signal             : 77%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 10 
+         Bss Load:
+             Connected Stations:         5
+             Channel Utilization:        29 (11 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 27 : Mine
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : ae:4c:a5:62:82:ad
+         Signal             : 78%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         Bss Load:
+             Connected Stations:         2
+             Channel Utilization:        135 (52 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : ae:4c:a5:5b:82:ac
+         Signal             : 84%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 6 
+         Bss Load:
+             Connected Stations:         1
+             Channel Utilization:        114 (44 %)
+             Medium Available Capacity:  0 (0 us/s)
+         QoS MSCS Supported    : 1
+         QoS Map Supported     : 1
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 28 : Linksys02742_5GHz
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : e8:9f:80:a1:84:eb
+         Signal             : 78%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 48 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 29 : Goodsons
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : a8:70:5d:ac:b1:9a
+         Signal             : 81%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 157 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 30 : Bose ST 10 (BBF970)
+    Network type            : Infrastructure
+    Authentication          : Open
+    Encryption              : None 
+    BSSID 1                 : 0c:ae:7d:b5:80:53
+         Signal             : 82%  
+         Radio type         : 802.11g
+         Band               : 2.4 GHz
+         Channel            : 6 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
+SSID 31 : elizawifi
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : a8:70:5d:3b:61:31
+         Signal             : 84%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 1 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+    BSSID 2                 : a8:70:5d:3b:61:32
+         Signal             : 89%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+
+SSID 32 : Max
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : 54:a6:5c:42:a4:c2
+         Signal             : 90%  
+         Radio type         : 802.11n
+         Band               : 2.4 GHz
+         Channel            : 11 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+    BSSID 2                 : 54:a6:5c:42:a4:ca
+         Signal             : 90%  
+         Radio type         : 802.11ac
+         Band               : 5 GHz
+         Channel            : 44 
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6
+         Other rates (Mbps) : 9 12 18 24 36 48 54
+
+SSID 33 : Route443
+    HESSID                  : c8:7f:54:28:28:ec
+    Network type            : Infrastructure
+    Authentication          : WPA2-Personal
+    Encryption              : CCMP 
+    BSSID 1                 : c8:7f:54:28:28:ec
+         Signal             : 96%  
+         Radio type         : 802.11ax
+         Band               : 5 GHz
+         Channel            : 149 
+         Bss Load:
+             Connected Stations:         7
+             Channel Utilization:        51 (20 %)
+             Medium Available Capacity:  31250 (1000000 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 6 12 24
+         Other rates (Mbps) : 9 18 36 48 54
+    BSSID 2                 : c8:7f:54:28:28:e8
+         Signal             : 96%  
+         Radio type         : 802.11ax
+         Band               : 2.4 GHz
+         Channel            : 5 
+         Bss Load:
+             Connected Stations:         8
+             Channel Utilization:        65 (25 %)
+             Medium Available Capacity:  31250 (1000000 us/s)
+         QoS MSCS Supported    : 0
+         QoS Map Supported     : 0
+         Basic rates (Mbps) : 1 2 5.5 11
+         Other rates (Mbps) : 6 9 12 18 24 36 48 54
+
