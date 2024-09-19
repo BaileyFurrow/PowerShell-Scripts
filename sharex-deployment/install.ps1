@@ -4,7 +4,7 @@ $ShareXInstallFile = "./sharex-16.1.0.exe"
 
 # Install ShareX silently
 
-# Invoke-Item -Path "$ShareXInstallFile /VERYSILENT"
+Invoke-Item -Path "$ShareXInstallFile /VERYSILENT"
 
 # Create ShareX registry key
 
@@ -17,8 +17,7 @@ $DisableUpdateCheckSplat = @{
     Path = $ShareXRegPath
     Name = "DisableUpdateCheck"
     Type = "DWord"
-    Value = $Null
-    WhatIf = $True
+    Value = 1
 }
 New-ItemProperty @DisableUpdateCheckSplat
 
@@ -28,8 +27,7 @@ $DisableUploadSplat = @{
     Path = $ShareXRegPath
     Name = "DisableUpload"
     Type = "DWord"
-    Value = $Null
-    WhatIf = $True
+    Value = 1
 }
 New-ItemProperty @DisableUploadSplat
 
@@ -41,6 +39,5 @@ $PersonalPathSplat = @{
     Name = "PersonalPath"
     Type = "String"
     Value = "$PicturesFolder\Screenshots"
-    WhatIf = $True
 }
 New-ItemProperty @PersonalPathSplat
