@@ -1,0 +1,2639 @@
+**********************
+PowerShell transcript start
+Start time: 20240919211226
+Username: BDESKTOPV2-1\baile
+RunAs User: BDESKTOPV2-1\baile
+Configuration Name: 
+Machine: BDESKTOPV2-1 (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\Program Files\PowerShell\7\pwsh.dll
+Process ID: 42916
+PSVersion: 7.4.5
+PSEdition: Core
+GitCommitId: 7.4.5
+OS: Microsoft Windows 10.0.26100
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is ./Get-AllApps.transcript.txt
+   ♥ 21:12:26 RAM: 21/31GB   26ms                                                             main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$Apps = @()
+   ♥ 21:12:33 RAM: 20/31GB   0ms                                                              main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$props = "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}}
+   ♥ 21:17:34 RAM: 20/31GB   7ms                                                              main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name="BitType";Exp={"x64"}}
+At line:1 char:103
++ … oft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name= …
++                                                          ~~~~~~
+Splatted variables like '@props' cannot be part of a comma-separated list of arguments.
+ParserError: 
+Line |
+   1 |  … oft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name= …
+     |                                                           ~~~~~~
+     | Splatted variables like '@props' cannot be part of a comma-separated list of arguments.
+
+   ♥ 21:19:18 RAM: 21/31GB   0ms                                                              main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}},@{Name="BitType";Exp={"x64"}}
+   ♥ 21:34:58 RAM: 21/31GB   105ms                                                            main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}},@{Name="BitType";Exp={"x86"}}
+   ♥ 21:35:38 RAM: 21/31GB   135ms                                                            main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>$apps
+
+DisplayName    : 7-Zip 23.01 (x64)
+DisplayVersion : 23.01
+Publisher      : Igor Pavlov
+InstallDate    : 
+GUID           : 7-Zip
+BitType        : x64
+
+DisplayName    : ShareX
+DisplayVersion : 16.1.0
+Publisher      : ShareX Team
+InstallDate    : 20240512
+GUID           : 82E6AC09-0FEF-4390-AD9F-0DD3F5561EFC_is1
+BitType        : x64
+
+DisplayName    : AMD Software
+DisplayVersion : 24.5.1
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 
+GUID           : AMD Catalyst Install Manager
+BitType        : x64
+
+DisplayName    : ARIA Engine v1.9.7.8
+DisplayVersion : v1.9.7.8
+Publisher      : Plogue Art et Technologie, Inc
+InstallDate    : 20240617
+GUID           : ARIA Engine_is1
+BitType        : x64
+
+DisplayName    : Audacity 3.3.3
+DisplayVersion : 3.3.3
+Publisher      : Audacity Team
+InstallDate    : 20230629
+GUID           : Audacity_is1
+BitType        : x64
+
+DisplayName    : AutoHotkey 1.1.37.02
+DisplayVersion : 1.1.37.02
+Publisher      : AutoHotkey Foundation LLC
+InstallDate    : 
+GUID           : AutoHotkey
+BitType        : x64
+
+DisplayName    : Cheat Engine 7.5
+DisplayVersion : 
+Publisher      : Cheat Engine
+InstallDate    : 20230824
+GUID           : Cheat Engine_is1
+BitType        : x64
+
+DisplayName    : Cisco Packet Tracer 8.2.1 64Bit
+DisplayVersion : 8.2.1.118
+Publisher      : Cisco Systems, Inc.
+InstallDate    : 20240129
+GUID           : Cisco Packet Tracer 8.2.1 64Bit_is1
+BitType        : x64
+
+DisplayName    : Transcribe! 9.25.1
+DisplayVersion : 9.25
+Publisher      : Seventh String Software
+InstallDate    : 20230704
+GUID           : com.seventhstring.Transcribe_is1
+BitType        : x64
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : Connection Manager
+BitType        : x64
+
+DisplayName    : Docker Desktop
+DisplayVersion : 4.30.0
+Publisher      : Docker Inc.
+InstallDate    : 
+GUID           : Docker Desktop
+BitType        : x64
+
+DisplayName    : Equalizer APO
+DisplayVersion : 1.3
+Publisher      : 
+InstallDate    : 
+GUID           : EqualizerAPO
+BitType        : x64
+
+DisplayName    : GIMP 2.10.34
+DisplayVersion : 2.10.34
+Publisher      : The GIMP Team
+InstallDate    : 20230629
+GUID           : GIMP-2_is1
+BitType        : x64
+
+DisplayName    : Git
+DisplayVersion : 2.41.0
+Publisher      : The Git Development Community
+InstallDate    : 20230629
+GUID           : Git_is1
+BitType        : x64
+
+DisplayName    : HWiNFO64
+DisplayVersion : 8.10
+Publisher      : Martin Malik, REALiX s.r.o.
+InstallDate    : 20240209
+GUID           : HWiNFO64_is1
+BitType        : x64
+
+DisplayName    : ImageMagick 7.1.1-26 Q16-HDRI (64-bit) (2024-01-07)
+DisplayVersion : 7.1.1.26
+Publisher      : ImageMagick Studio LLC
+InstallDate    : 20240111
+GUID           : ImageMagick 7.1.1 Q16-HDRI (64-bit)_is1
+BitType        : x64
+
+DisplayName    : IrfanView 4.62 (64-bit)
+DisplayVersion : 4.62
+Publisher      : Irfan Skiljan
+InstallDate    : 
+GUID           : IrfanView64
+BitType        : x64
+
+DisplayName    : Little Big Mouse version 4.2.7124.42685
+DisplayVersion : 4.2.7124.42685
+Publisher      : 
+InstallDate    : 20230902
+GUID           : Little Big Mouse_is1
+BitType        : x64
+
+DisplayName    : Meshmixer
+DisplayVersion : 3.5
+Publisher      : Autodesk, Inc.
+InstallDate    : 
+GUID           : Meshmixer_x64
+BitType        : x64
+
+DisplayName    : Microsoft Visual Studio 2010 Tools for Office Runtime (x64)
+DisplayVersion : 10.0.50903
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : Microsoft Visual Studio 2010 Tools for Office Runtime (x64)
+BitType        : x64
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : mstsc-4b0a31aa-df6a-4307-9b47-d5cc50009643
+BitType        : x64
+
+DisplayName    : Microsoft 365 Apps for enterprise - en-us
+DisplayVersion : 16.0.17928.20156
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : O365ProPlusRetail - en-us
+BitType        : x64
+
+DisplayName    : Oculus
+DisplayVersion : <3
+Publisher      : Facebook Technologies, LLC
+InstallDate    : 
+GUID           : Oculus
+BitType        : x64
+
+DisplayName    : Microsoft OneDrive
+DisplayVersion : 24.180.0905.0001
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : OneDriveSetup.exe
+BitType        : x64
+
+DisplayName    : OpenSCAD (remove only)
+DisplayVersion : 2021.01
+Publisher      : The OpenSCAD Developers
+InstallDate    : 
+GUID           : OpenSCAD
+BitType        : x64
+
+DisplayName    : Baldur's Gate 3
+DisplayVersion : 
+Publisher      : Larian Studios
+InstallDate    : 
+GUID           : Steam App 1086940
+BitType        : x64
+
+DisplayName    : Starfield
+DisplayVersion : 
+Publisher      : Bethesda Game Studios
+InstallDate    : 
+GUID           : Steam App 1716740
+BitType        : x64
+
+DisplayName    : PlanetSide 2
+DisplayVersion : 
+Publisher      : Rogue Planet Games
+InstallDate    : 
+GUID           : Steam App 218230
+BitType        : x64
+
+DisplayName    : Universe Sandbox
+DisplayVersion : 
+Publisher      : Giant Army
+InstallDate    : 
+GUID           : Steam App 230290
+BitType        : x64
+
+DisplayName    : Papers, Please
+DisplayVersion : 
+Publisher      : Lucas Pope
+InstallDate    : 
+GUID           : Steam App 239030
+BitType        : x64
+
+DisplayName    : SteamVR
+DisplayVersion : 
+Publisher      : Valve
+InstallDate    : 
+GUID           : Steam App 250820
+BitType        : x64
+
+DisplayName    : Fantasy Map Simulator
+DisplayVersion : 
+Publisher      : The Stranger
+InstallDate    : 
+GUID           : Steam App 3035500
+BitType        : x64
+
+DisplayName    : Peggle Deluxe
+DisplayVersion : 
+Publisher      : PopCap Games, Inc.
+InstallDate    : 
+GUID           : Steam App 3480
+BitType        : x64
+
+DisplayName    : Peggle Nights
+DisplayVersion : 
+Publisher      : PopCap Games, Inc.
+InstallDate    : 
+GUID           : Steam App 3540
+BitType        : x64
+
+DisplayName    : Aseprite
+DisplayVersion : 
+Publisher      : David Capello
+InstallDate    : 
+GUID           : Steam App 431730
+BitType        : x64
+
+DisplayName    : TuxGuitar
+DisplayVersion : 1.6.0
+Publisher      : TuxGuitar
+InstallDate    : 20240123
+GUID           : TuxGuitar 1.6.0
+BitType        : x64
+
+DisplayName    : USBPcap 1.5.4.0
+DisplayVersion : 1.5.4.0
+Publisher      : Tomasz Mon
+InstallDate    : 
+GUID           : USBPcap
+BitType        : x64
+
+DisplayName    : Vim 9.0 (x64)
+DisplayVersion : 9.0.1672
+Publisher      : Bram Moolenaar et al.
+InstallDate    : 
+GUID           : Vim 9.0
+BitType        : x64
+
+DisplayName    : Microsoft Visio - en-us
+DisplayVersion : 16.0.17928.20156
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : VisioPro2021Retail - en-us
+BitType        : x64
+
+DisplayName    : VLC media player
+DisplayVersion : 3.0.20
+Publisher      : VideoLAN
+InstallDate    : 
+GUID           : VLC media player
+BitType        : x64
+
+DisplayName    : VTFEdit 1.3.3
+DisplayVersion : 
+Publisher      : Neil Jedrzejewski & Ryan Gregg
+InstallDate    : 20240220
+GUID           : VTFEdit_is1
+BitType        : x64
+
+DisplayName    : Vulkan Run Time Libraries 1.0.65.1
+DisplayVersion : 1.0.65.1
+Publisher      : LunarG, Inc.
+InstallDate    : 
+GUID           : VulkanRT1.0.65.1
+BitType        : x64
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : WIC
+BitType        : x64
+
+DisplayName    : WinHTTrack Website Copier 3.49-2 (x64)
+DisplayVersion : 3.49.2
+Publisher      : HTTrack
+InstallDate    : 20240108
+GUID           : WinHTTrack Website Copier_is1
+BitType        : x64
+
+DisplayName    : WizTree v4.18
+DisplayVersion : 4.18
+Publisher      : Antibody Software
+InstallDate    : 20240303
+GUID           : WizTree_is1
+BitType        : x64
+
+DisplayName    : Garritan ARIA Player v1.959
+DisplayVersion : v1.959
+Publisher      : Garritan
+InstallDate    : 20230629
+GUID           : __ARIA_1012___is1
+BitType        : x64
+
+DisplayName    : Garritan Instruments for Finale
+DisplayVersion : v2.0.0.96
+Publisher      : Garritan
+InstallDate    : 20230629
+GUID           : __ARIA_1013___is1
+BitType        : x64
+
+DisplayName    : Plogue sforzando v1.978
+DisplayVersion : v1.978
+Publisher      : Plogue
+InstallDate    : 20240617
+GUID           : __ARIA_1014___is1
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2013 x64 Additional Runtime - 12.0.40664
+DisplayVersion : 12.0.40664
+Publisher      : Microsoft Corporation
+InstallDate    : 20231010
+GUID           : {010792BA-551A-3AC0-A7EF-0FAB4156C382}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Runtime - 6.0.33 (x64)
+DisplayVersion : 48.132.18378
+Publisher      : Microsoft Corporation
+InstallDate    : 20240816
+GUID           : {07BE9B02-0247-471C-B06F-A3B1A8FA9216}
+BitType        : x64
+
+DisplayName    : IIS Express Application Compatibility Database for x64
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {08274920-8908-45c2-9258-8ad67ff77b09}.sdb
+BitType        : x64
+
+DisplayName    : Microsoft .NET Core Host - 2.0.9 (x64)
+DisplayVersion : 16.36.26615
+Publisher      : Microsoft Corporation
+InstallDate    : 20230716
+GUID           : {0B28A1DB-A543-45FB-8767-DF71EE5A9323}
+BitType        : x64
+
+DisplayName    : AWS Command Line Interface v2
+DisplayVersion : 2.13.3.0
+Publisher      : Amazon Web Services
+InstallDate    : 20230725
+GUID           : {0D941556-04AB-42EE-B1FD-CF4B21CA0B96}
+BitType        : x64
+
+DisplayName    : Bonjour Print Services
+DisplayVersion : 2.0.2.0
+Publisher      : Apple Inc.
+InstallDate    : 20231024
+GUID           : {0DA20600-6130-443B-9D4B-F30520315FA6}
+BitType        : x64
+
+DisplayName    : Microsoft ODBC Driver 17 for SQL Server
+DisplayVersion : 17.10.6.1
+Publisher      : Microsoft Corporation
+InstallDate    : 20240411
+GUID           : {0E0F96AC-80DE-4400-A40C-429D63293651}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Maui.Manifest-8.0.100 (x64)
+DisplayVersion : 8.0.3
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {116EF6D0-AE8E-4E6D-B0D8-EFF145CD45DA}
+BitType        : x64
+
+DisplayName    : Canon TR8500 series MP Drivers
+DisplayVersion : 1.02
+Publisher      : Canon Inc.
+InstallDate    : 
+GUID           : {1199FAD5-9546-44f3-81CF-FFDB8040B7BF}_Canon_TR8500_series
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.tvOS.Manifest-8.0.100 (x64)
+DisplayVersion : 17.5.8030
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {127F17DA-09A1-4F5B-A47D-009D7E515FA5}
+BitType        : x64
+
+DisplayName    : NordVPN
+DisplayVersion : 7.28.4.0
+Publisher      : Nord Security
+InstallDate    : 20240908
+GUID           : {19465C24-3D5D-4327-B99F-3CC0A1D38151}_is1
+BitType        : x64
+
+DisplayName    : Microsoft ASP.NET Core 8.0.8 Shared Framework (x64)
+DisplayVersion : 8.0.8.24369
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {1A631874-52CA-3CD6-84C2-0465F1280EDA}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2010  x64 Redistributable - 10.0.40219
+DisplayVersion : 10.0.40219
+Publisher      : Microsoft Corporation
+InstallDate    : 20230629
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}
+BitType        : x64
+
+DisplayName    : Node.js
+DisplayVersion : 20.3.1
+Publisher      : Node.js Foundation
+InstallDate    : 20230629
+GUID           : {20456712-29D7-4429-B065-D361CE4EC950}
+BitType        : x64
+
+DisplayName    : AMD WVR64
+DisplayVersion : 1.0.2
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240527
+GUID           : {2A74586A-35F2-4158-B570-4022F0EF85DC}
+BitType        : x64
+
+DisplayName    : GitHub CLI
+DisplayVersion : 2.32.1
+Publisher      : GitHub, Inc.
+InstallDate    : 20230803
+GUID           : {2BA87281-0973-42C6-8214-B2D516CCF05B}
+BitType        : x64
+
+DisplayName    : Inkscape
+DisplayVersion : 1.3.0
+Publisher      : Inkscape
+InstallDate    : 20230803
+GUID           : {2C69A8D5-2E44-4F99-BD5E-08536B52F1DA}
+BitType        : x64
+
+DisplayName    : Oracle VM VirtualBox 7.0.8
+DisplayVersion : 7.0.8
+Publisher      : Oracle and/or its affiliates
+InstallDate    : 20230630
+GUID           : {2D9D28CD-84DE-4DC7-BAD2-CA5505324049}
+BitType        : x64
+
+DisplayName    : Microsoft .NET 8.0 Templates 8.0.304 (x64)
+DisplayVersion : 32.10.12914
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {36505731-00CF-4BDE-8A6A-6D8BD2264C7A}
+BitType        : x64
+
+DisplayName    : Microsoft SQL Server 2019 LocalDB
+DisplayVersion : 15.0.4153.1
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {36E492B8-CB83-4DA5-A5D2-D99A8E8228A1}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2012 x64 Additional Runtime - 11.0.61030
+DisplayVersion : 11.0.61030
+Publisher      : Microsoft Corporation
+InstallDate    : 20230705
+GUID           : {37B8F9C7-03FB-3253-8781-2517C99D7C00}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Aspire.Manifest-8.0.100 (x64)
+DisplayVersion : 64.64.18482
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {38DF0526-2425-4999-B77C-82281D15F35C}
+BitType        : x64
+
+DisplayName    : Portals version 3.3.0.9
+DisplayVersion : 3.3.0.9
+Publisher      : Ross Patterson
+InstallDate    : 20240706
+GUID           : {3A663D11-1782-48DC-8BE1-DB11BB33D6FA}_is1
+BitType        : x64
+
+DisplayName    : Microsoft .NET Host - 8.0.8 (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {3BA242F8-BDB5-4096-9FBC-333CD663BBAD}
+BitType        : x64
+
+DisplayName    : Windows Subsystem for Linux WSLg Preview
+DisplayVersion : 1.0.27
+Publisher      : Microsoft Corporation
+InstallDate    : 20230702
+GUID           : {3CBDE512-7510-4F90-B1C0-7C4EB9DD7C26}
+BitType        : x64
+
+DisplayName    : MuseScore Studio 4
+DisplayVersion : 4.4.1.242490810
+Publisher      : MuseScore Limited
+InstallDate    : 20240915
+GUID           : {423D6811-C89B-48FB-B447-34878AC52615}
+BitType        : x64
+
+DisplayName    : Microsoft Windows Desktop Targeting Pack - 8.0.8 (x64)
+DisplayVersion : 64.32.18376
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {42EC60F8-0BB6-4F58-8D0E-370CAB21A961}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Mono.Toolchain.net7.Manifest (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {433283AA-1F1F-493A-836F-EDE6388F718A}
+BitType        : x64
+
+DisplayName    : Branding64
+DisplayVersion : 1.00.0009
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240527
+GUID           : {492AEFBE-1B81-4C20-A111-E6974BB98EC5}
+BitType        : x64
+
+DisplayName    : Rust 1.73 (MSVC 64-bit)
+DisplayVersion : 1.73.0.0
+Publisher      : The Rust Project Developers
+InstallDate    : 20231031
+GUID           : {4AEB6274-38D2-4C0B-BFD7-96CD500451B6}
+BitType        : x64
+
+DisplayName    : KeePassXC
+DisplayVersion : 2.7.9
+Publisher      : KeePassXC Team
+InstallDate    : 20240704
+GUID           : {4D0AFBD7-7864-4FF3-A481-513DEBFAB175}
+BitType        : x64
+
+DisplayName    : PuTTY release 0.78 (64-bit)
+DisplayVersion : 0.78.0.0
+Publisher      : Simon Tatham
+InstallDate    : 20230729
+GUID           : {4EEF2644-700F-46F8-9655-915145248986}
+BitType        : x64
+
+DisplayName    : AMD DVR64
+DisplayVersion : 1.0.2
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240527
+GUID           : {5018827A-F7DF-4F00-AF48-FD584ACAF0B8}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Toolset 8.0.304 (x64)
+DisplayVersion : 32.9.12914
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {516DE5E2-17F6-4C39-97DD-14436DF8E25F}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Emscripten.net7.Manifest (x64)
+DisplayVersion : 64.32.18242
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {518CABDD-A838-4C9D-873E-5B3390DCE8AA}
+BitType        : x64
+
+DisplayName    : DB Browser for SQLite
+DisplayVersion : 3.12.2
+Publisher      : DB Browser for SQLite Team
+InstallDate    : 20230721
+GUID           : {5211034D-495B-4A5E-9B8D-8961BBB2B9E2}
+BitType        : x64
+
+DisplayName    : Logitech G HUB
+DisplayVersion : 2024.7.621167
+Publisher      : Logitech
+InstallDate    : 
+GUID           : {521c89be-637f-4274-a840-baaf7460c2b2}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.40664
+DisplayVersion : 12.0.40664
+Publisher      : Microsoft Corporation
+InstallDate    : 20231010
+GUID           : {53CF6934-A98D-3D84-9146-FC4EDF3D5641}
+BitType        : x64
+
+DisplayName    : IIS 10.0 Express
+DisplayVersion : 10.0.07728
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {56674F3A-EE02-4EC7-B429-B8C37CA254E3}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.tvOS.Manifest-8.0.100 (x64)
+DisplayVersion : 17.0.8478
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {568F99E8-9F2D-48D7-A05D-D64C512B3AFD}
+BitType        : x64
+
+DisplayName    : Windows Subsystem for Linux
+DisplayVersion : 2.2.4.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240506
+GUID           : {57CD6412-C4AC-431F-8753-46A620EF3A4E}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2022 X64 Additional Runtime - 14.40.33810
+DisplayVersion : 14.40.33810
+Publisher      : Microsoft Corporation
+InstallDate    : 20240722
+GUID           : {59CED48F-EBFE-480C-8A38-FC079C2BEC0F}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Core Host FX Resolver - 2.0.9 (x64)
+DisplayVersion : 16.36.26615
+Publisher      : Microsoft Corporation
+InstallDate    : 20230716
+GUID           : {5ABDD743-82EB-444C-913F-F2BC033AEAE6}
+BitType        : x64
+
+DisplayName    : Microsoft .NET 8.0 Templates 8.0.401 (x64)
+DisplayVersion : 32.10.16914
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {5B88DCA0-A8FD-4700-957E-88565890439D}
+BitType        : x64
+
+DisplayName    : Microsoft System CLR Types for SQL Server 2019
+DisplayVersion : 15.0.2000.5
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {5BC7E9EB-13E8-45DB-8A60-F2481FEB4595}
+BitType        : x64
+
+DisplayName    : PowerToys (Preview)
+DisplayVersion : 0.83.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240730
+GUID           : {5CA9E191-37EF-4DC4-BA01-87E0E73B035B}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2008 Redistributable - x64 9.0.30729.6161
+DisplayVersion : 9.0.30729.6161
+Publisher      : Microsoft Corporation
+InstallDate    : 20240203
+GUID           : {5FCE6D76-F5DC-37AB-B2B8-22AB8CEDB1D4}
+BitType        : x64
+
+DisplayName    : Blackmagic RAW Common Components
+DisplayVersion : 3.4
+Publisher      : Blackmagic Design
+InstallDate    : 20231113
+GUID           : {62A102F5-FBA0-43BB-BFC2-657C07BC0901}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Host FX Resolver - 6.0.33 (x64)
+DisplayVersion : 48.132.18378
+Publisher      : Microsoft Corporation
+InstallDate    : 20240816
+GUID           : {62A8E894-9FD1-45A0-A4D0-BD9FA854818D}
+BitType        : x64
+
+DisplayName    : Microsoft Windows Desktop Runtime - 8.0.8 (x64)
+DisplayVersion : 64.32.18376
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {663E7053-3B36-4AE5-8223-234867FAEAE6}
+BitType        : x64
+
+DisplayName    : vs_devenx64vmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {67B8CF3A-C2F5-424F-B172-E0A2B8D5D2D5}
+BitType        : x64
+
+DisplayName    : Workflow Manager Client 1.0
+DisplayVersion : 2.1.10525.2
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {69CD1F2D-DF68-4E23-9108-1B70783F2855}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.iOS.Manifest-8.0.100 (x64)
+DisplayVersion : 17.0.8478
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {6BF59E75-BE05-4C69-9C48-3532B6DE0EC5}
+BitType        : x64
+
+DisplayName    : VS JIT Debugger
+DisplayVersion : 17.0.157.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {6C1EDC0A-E71D-44D2-821C-213A5CD15498}
+BitType        : x64
+
+DisplayName    : NordUpdater
+DisplayVersion : 1.4.4.821
+Publisher      : Nord Security
+InstallDate    : 20240829
+GUID           : {6E35DB82-3D19-4DD6-B8CB-F082815FDE18}_is1
+BitType        : x64
+
+DisplayName    : Bonjour
+DisplayVersion : 3.0.0.10
+Publisher      : Apple Inc.
+InstallDate    : 20231014
+GUID           : {6E3610B2-430D-4EB0-81E3-2B57E8B9DE8D}
+BitType        : x64
+
+DisplayName    : Microsoft Visual Studio Installer
+DisplayVersion : 3.11.2180.21897
+Publisher      : Microsoft Corporation
+InstallDate    : 20230629
+GUID           : {6F320B93-EE3C-4826-85E0-ADF79F8D4C61}
+BitType        : x64
+
+DisplayName    : VMware Workstation
+DisplayVersion : 17.5.0
+Publisher      : VMware, Inc.
+InstallDate    : 20240104
+GUID           : {71FAC1A8-65A4-4DC1-8BAE-4ABD8989CED7}
+BitType        : x64
+
+DisplayName    : Microsoft .NET 8.0 Templates 8.0.400 (x64)
+DisplayVersion : 32.10.13214
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {755A96BB-AB66-4671-AA4E-99177657E625}
+BitType        : x64
+
+DisplayName    : Java 8 Update 421 (64-bit)
+DisplayVersion : 8.0.4210.9
+Publisher      : Oracle Corporation
+InstallDate    : 20240913
+GUID           : {77924AE4-039E-4CA4-87B4-2F64180421F0}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.macOS.Manifest-8.0.100 (x64)
+DisplayVersion : 14.5.8030
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {79CEE176-25CD-46B6-8E03-318D6B0CE962}
+BitType        : x64
+
+DisplayName    : Ableton Live 11 Suite
+DisplayVersion : 11.0.0.0
+Publisher      : Ableton
+InstallDate    : 20230916
+GUID           : {7A330287-7165-47F2-B54D-C875E51DE1FB}
+BitType        : x64
+
+DisplayName    : Application Compatibility Toolkit
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {7A8AFEB3-ABCE-D239-6F39-C147924353BD}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Host FX Resolver - 8.0.8 (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {7FE24458-0796-4428-99C2-9A0F8DAB93CC}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Android.Manifest-8.0.100 (x64)
+DisplayVersion : 34.0.113
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {82E988D4-4794-49D0-8185-B49CD842BFFB}
+BitType        : x64
+
+DisplayName    : Go Programming Language amd64 go1.21.4
+DisplayVersion : 1.21.4
+Publisher      : https://go.dev
+InstallDate    : 20231118
+GUID           : {83CD2014-D3EA-4684-9105-F08965CAA955}
+BitType        : x64
+
+DisplayName    : Elgato Stream Deck
+DisplayVersion : 6.6.0.20583
+Publisher      : Corsair Memory, Inc.
+InstallDate    : 20240421
+GUID           : {851FAE0D-E0EF-42DA-A997-7A83478F4CE3}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Host - 6.0.33 (x64)
+DisplayVersion : 48.132.18378
+Publisher      : Microsoft Corporation
+InstallDate    : 20240816
+GUID           : {8584855C-3B2B-4F95-BE1D-CCA5B6DE2815}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.MacCatalyst.Manifest-8.0.100 (x64)
+DisplayVersion : 17.0.8478
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {8B5384CA-D189-4CFE-8DF0-2D05B4EA8499}
+BitType        : x64
+
+DisplayName    : Paradox Launcher v2
+DisplayVersion : 2.4.0
+Publisher      : Paradox Interactive
+InstallDate    : 20230629
+GUID           : {8C5CF4CE-D589-40B4-A77F-01FD64602C50}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Toolset 8.0.400 (x64)
+DisplayVersion : 32.8.13214
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {8C62C8E8-64AE-448E-B98C-127E2BBED5D6}
+BitType        : x64
+
+DisplayName    : Ableton Push Driver v5.50.0
+DisplayVersion : 5.50.0
+Publisher      : Ableton
+InstallDate    : 20230916
+GUID           : {8CE98F88-3F07-4338-A036-B66414F3FD66}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Maui.Manifest-8.0.100 (x64)
+DisplayVersion : 8.0.72
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {8D04CA7E-1BE1-4797-BCB9-8558C64B0FFA}
+BitType        : x64
+
+DisplayName    : Microsoft Access database engine 2010 (English)
+DisplayVersion : 14.0.7015.1000
+Publisher      : Microsoft Corporation
+InstallDate    : 20230716
+GUID           : {90140000-00D1-0409-1000-0000000FF1CE}
+BitType        : x64
+
+DisplayName    : Office 16 Click-to-Run Licensing Component
+DisplayVersion : 16.0.17928.20156
+Publisher      : Microsoft Corporation
+InstallDate    : 20240912
+GUID           : {90160000-007E-0000-1000-0000000FF1CE}
+BitType        : x64
+
+DisplayName    : Office 16 Click-to-Run Extensibility Component
+DisplayVersion : 16.0.17928.20156
+Publisher      : Microsoft Corporation
+InstallDate    : 20240912
+GUID           : {90160000-008C-0000-1000-0000000FF1CE}
+BitType        : x64
+
+DisplayName    : DiagnosticsHub_CollectionService
+DisplayVersion : 17.10.34627
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {92A47FAD-5C85-400C-8B00-698D4C5F7031}
+BitType        : x64
+
+DisplayName    : OpenVPN 2.6.5-I001 amd64
+DisplayVersion : 2.6.501
+Publisher      : OpenVPN, Inc.
+InstallDate    : 20230803
+GUID           : {940590BF-593E-418B-809D-F48EA0EC751E}
+BitType        : x64
+
+DisplayName    : Microsoft Visual Studio 2010 Tools for Office Runtime (x64)
+DisplayVersion : 10.0.50908
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {9495AEB4-AB97-39DE-8C42-806EEF75ECA7}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.macOS.Manifest-8.0.100 (x64)
+DisplayVersion : 14.0.8478
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {98927287-8779-447A-919E-73028D53F719}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Runtime - 8.0.8 (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {9ACB23DB-4D32-49ED-A5E3-F4E2F8D9D2AA}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Emscripten.net6.Manifest (x64)
+DisplayVersion : 64.32.18242
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {9D1150CA-4E91-4CEA-8653-6D7026137090}
+BitType        : x64
+
+DisplayName    : Finale
+DisplayVersion : 26.3.1.520
+Publisher      : MakeMusic
+InstallDate    : 20230629
+GUID           : {9DA1AAA0-6348-47F2-AEAD-156235B650E6}
+BitType        : x64
+
+DisplayName    : Microsoft .NET AppHost Pack - 8.0.8 (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {9EFD0CF9-17ED-422A-8227-16DFDD867EC4}
+BitType        : x64
+
+DisplayName    : Microsoft ASP.NET Core 8.0.8 Targeting Pack (x64)
+DisplayVersion : 8.0.8.24369
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {9F6AA59A-AF40-32FB-9707-DDB1D80D42C3}
+BitType        : x64
+
+DisplayName    : RyzenMasterSDK
+DisplayVersion : 1.2.3.5
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240527
+GUID           : {A4C57FE6-B033-4436-ADB6-3BCDB7616D69}
+BitType        : x64
+
+DisplayName    : Microsoft Windows Desktop Runtime - 6.0.33 (x64)
+DisplayVersion : 48.132.18374
+Publisher      : Microsoft Corporation
+InstallDate    : 20240816
+GUID           : {A59F43A6-AADB-42EB-883B-2FE4E3AA3A69}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Standard Targeting Pack - 2.1.0 (x64)
+DisplayVersion : 24.0.28113
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {A7036CFB-B403-4598-85FF-D397ABB88173}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Core Runtime - 2.0.9 (x64)
+DisplayVersion : 16.36.26615
+Publisher      : Microsoft Corporation
+InstallDate    : 20230716
+GUID           : {A75E492B-1D84-4E86-BDCA-077B4C536B6D}
+BitType        : x64
+
+DisplayName    : Microsoft Teams Meeting Add-in for Microsoft Office
+DisplayVersion : 1.24.19202
+Publisher      : Microsoft
+InstallDate    : 20240815
+GUID           : {A7AB73A3-CB10-4AA5-9D38-6AEFFBDE4C91}
+BitType        : x64
+
+DisplayName    : icecap_collection_x64
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {A7BC9345-F48F-4F6C-8F23-222F6B64B737}
+BitType        : x64
+
+DisplayName    : IIS Express Application Compatibility Database for x86
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {ad846bae-d44b-4722-abad-f7420e08bcd9}.sdb
+BitType        : x64
+
+DisplayName    : Microsoft Build of OpenJDK  21.0.4+7 (x64)
+DisplayVersion : 21.0.4.7
+Publisher      : Microsoft
+InstallDate    : 20240913
+GUID           : {B1CD0200-B6BC-4B5A-B1E3-CD9C5A99A516}
+BitType        : x64
+
+DisplayName    : Microsoft Web Deploy 4.0
+DisplayVersion : 10.0.7225
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {B1D041B8-893D-46F2-A822-6920D17411C9}
+BitType        : x64
+
+DisplayName    : vs_minshellinteropx64msi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {B219BF5E-0743-49F3-9ADD-543A18FFAE79}
+BitType        : x64
+
+DisplayName    : AMD Settings
+DisplayVersion : 2024.0508.1945.2016
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240527
+GUID           : {B2E5BA46-4A67-4C6F-8FAD-640A19637346}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Android.Manifest-8.0.100 (x64)
+DisplayVersion : 34.0.43
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {B5A57BF9-FC7A-4FA6-BAEB-46E173986DF3}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2022 X64 Minimum Runtime - 14.40.33810
+DisplayVersion : 14.40.33810
+Publisher      : Microsoft Corporation
+InstallDate    : 20240722
+GUID           : {B8B3BB4A-A10D-4F51-91B7-A64FFAC31EA7}
+BitType        : x64
+
+DisplayName    : DaVinci Resolve
+DisplayVersion : 18.6.20002
+Publisher      : Blackmagic Design
+InstallDate    : 20231113
+GUID           : {B9999221-1188-4584-98CC-4742F8A57FC6}
+BitType        : x64
+
+DisplayName    : Pandoc 3.1.5
+DisplayVersion : 3.1.5
+Publisher      : John MacFarlane
+InstallDate    : 20230718
+GUID           : {BADA567B-66C6-4372-8AA3-7754020B015A}
+BitType        : x64
+
+DisplayName    : PowerShell 7-x64
+DisplayVersion : 7.4.5.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240822
+GUID           : {C1593F76-F694-448E-AD35-82DDD6203975}
+BitType        : x64
+
+DisplayName    : EA app
+DisplayVersion : 13.248.0.5761
+Publisher      : Electronic Arts
+InstallDate    : 20230718
+GUID           : {C2622085-ABD2-49E5-8AB9-D3D6A642C091}
+BitType        : x64
+
+DisplayName    : UEV Tools on amd64
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {C4BF81C6-CB20-6B8D-DC53-32A83F1650E9}
+BitType        : x64
+
+DisplayName    : Microsoft Update Health Tools
+DisplayVersion : 5.72.0.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20231102
+GUID           : {C6FD611E-7EFE-488C-A0E0-974C09EF6473}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Mono.Toolchain.net6.Manifest (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {C85DF635-763A-4B7F-A325-D9C885E48148}
+BitType        : x64
+
+DisplayName    : calibre 64bit
+DisplayVersion : 6.23.0
+Publisher      : Kovid Goyal
+InstallDate    : 20230715
+GUID           : {CCFCB310-562C-453D-839C-D784279AC61A}
+BitType        : x64
+
+DisplayName    : Microsoft Visual C++ 2012 x64 Minimum Runtime - 11.0.61030
+DisplayVersion : 11.0.61030
+Publisher      : Microsoft Corporation
+InstallDate    : 20230705
+GUID           : {CF2BEA3C-26EA-32F8-AA9B-331F7E34BA97}
+BitType        : x64
+
+DisplayName    : Samsung USB Driver for Mobile Phones
+DisplayVersion : 1.7.58.0
+Publisher      : Samsung Electronics Co., Ltd.
+InstallDate    : 
+GUID           : {D0795B21-0CDA-4a92-AB9E-6E92D8111E44}
+BitType        : x64
+
+DisplayName    : DaVinci Resolve Control Panels
+DisplayVersion : 2.0.7.0
+Publisher      : Blackmagic Design
+InstallDate    : 20231113
+GUID           : {D1ACF467-9FB4-45DA-942F-A19452E70A3F}
+BitType        : x64
+
+DisplayName    : Microsoft .NET SDK 8.0.400 (x64) from Visual Studio
+DisplayVersion : 8.4.24.37502
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {D77DA550-2511-4108-8019-D02DAF4F637E}
+BitType        : x64
+
+DisplayName    : CMake
+DisplayVersion : 3.29.3
+Publisher      : Kitware
+InstallDate    : 20240512
+GUID           : {D8FC0220-9C4C-4B9F-A637-010E77524B09}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Targeting Pack - 8.0.8 (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {DA718382-BEB8-4B6D-BAF5-138A03F8CF26}
+BitType        : x64
+
+DisplayName    : AMD Ryzen Master SDK
+DisplayVersion : 2.10.0.2198
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20230906
+GUID           : {DBD50508-5F75-416B-995D-C42433A00944}
+BitType        : x64
+
+DisplayName    : vs_communityx64msi
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {DCF89732-E559-4900-8844-7C6B27F28808}
+BitType        : x64
+
+DisplayName    : TeraCopy
+DisplayVersion : 3.17
+Publisher      : Code Sector
+InstallDate    : 20231206
+GUID           : {DF5325DF-1F43-4282-85D5-1CA3353E6B13}
+BitType        : x64
+
+DisplayName    : vs_minshellx64msi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {DFE9C1B1-B059-46C6-8272-A4975CE7C844}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Emscripten.Current.Manifest (x64)
+DisplayVersion : 64.32.18242
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {E1EE241B-E1C5-4AE4-8350-172935F11BB0}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Workload.Mono.Toolchain.Current.Manifest (x64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {E4C64A61-464D-4130-8722-5E9BD38A0424}
+BitType        : x64
+
+DisplayName    : Microsoft .NET AppHost Pack - 8.0.8 (x64_x86)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {E81E3299-FFE8-442B-8EA2-5F72CFF0AF9A}
+BitType        : x64
+
+DisplayName    : Microsoft Visual Studio Code
+DisplayVersion : 1.93.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {EA457B21-F73E-494C-ACAB-524FDE069978}_is1
+BitType        : x64
+
+DisplayName    : Neovim
+DisplayVersion : 0.9.1
+Publisher      : neovim.io
+InstallDate    : 20230904
+GUID           : {EBDEFF17-3B0B-41EC-9EE4-7E4E5F590028}
+BitType        : x64
+
+DisplayName    : Microsoft Build of OpenJDK with Hotspot 11.0.16.1+1 (x64)
+DisplayVersion : 11.0.16.101
+Publisher      : Microsoft
+InstallDate    : 20230724
+GUID           : {F207B40D-1DB3-42FB-9DB7-D761C4F1076E}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.iOS.Manifest-8.0.100 (x64)
+DisplayVersion : 17.5.8030
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F31FFAA0-56DB-4DDB-B8BE-5E6360210D41}
+BitType        : x64
+
+DisplayName    : Microsoft .NET Toolset 8.0.401 (x64)
+DisplayVersion : 32.8.16914
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F32D7066-ABF9-4E69-883E-F31AD7508DEC}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.Aspire.Manifest-8.0.100 (x64)
+DisplayVersion : 64.0.5426
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {F3AEB036-4B8A-4C25-B4D2-850944E909C4}
+BitType        : x64
+
+DisplayName    : Microsoft.NET.Sdk.MacCatalyst.Manifest-8.0.100 (x64)
+DisplayVersion : 17.5.8030
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F460D64E-A383-4338-A18D-3738B0680FBB}
+BitType        : x64
+
+DisplayName    : VS Script Debugging Common
+DisplayVersion : 17.0.157.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F5796163-6EC6-488A-B2DE-E1E94477F6AD}
+BitType        : x64
+
+DisplayName    : Windows Subsystem for Linux Update
+DisplayVersion : 5.10.102.1
+Publisher      : Microsoft Corporation
+InstallDate    : 20230702
+GUID           : {F8474A47-8B5D-4466-ACE3-78EAB3BF21A8}
+BitType        : x64
+
+DisplayName    : IntelliTraceProfilerProxy
+DisplayVersion : 15.0.21225.01
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {F8B9E8C8-61E8-4E9E-879D-F3F498AD0230}
+BitType        : x64
+
+DisplayName    : Microsoft .NET AppHost Pack - 8.0.8 (x64_arm64)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {FBF244F9-0912-4C4D-86C0-DF787B787A9A}
+BitType        : x64
+
+DisplayName    : AMD Chipset Software
+DisplayVersion : 6.01.25.342
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 
+GUID           : AMD_Chipset_IODrivers
+BitType        : x86
+
+DisplayName    : AppFlowy
+DisplayVersion : 0.3.8
+Publisher      : AppFlowy-IO
+InstallDate    : 20231118
+GUID           : AppFlowy_is1
+BitType        : x86
+
+DisplayName    : ASIO4ALL
+DisplayVersion : 2.14
+Publisher      : Michael Tippach
+InstallDate    : 
+GUID           : ASIO4ALL
+BitType        : x86
+
+DisplayName    : Canon IJ Printer Assistant Tool
+DisplayVersion : 1.80.1.13
+Publisher      : Canon Inc.
+InstallDate    : 
+GUID           : Canon IJ Printer Assistant Tool
+BitType        : x86
+
+DisplayName    : Canon IJ Network Scanner Selector EX2
+DisplayVersion : 2.0.5.3
+Publisher      : Canon Inc.
+InstallDate    : 
+GUID           : Canon_IJ_Network_Scanner_Selector_EX2
+BitType        : x86
+
+DisplayName    : Canon IJ Scan Utility
+DisplayVersion : 1.4.0.16
+Publisher      : Canon Inc.
+InstallDate    : 
+GUID           : Canon_IJ_Scan_Utility
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : Connection Manager
+BitType        : x86
+
+DisplayName    : DYMO Connect Web Service
+DisplayVersion : 1.4.6.37
+Publisher      : DYMO
+InstallDate    : 
+GUID           : DYMO Connect Web Service
+BitType        : x86
+
+DisplayName    : Visual Studio Community 2022
+DisplayVersion : 17.11.3
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : e01854b5
+BitType        : x86
+
+DisplayName    : FL Studio 21
+DisplayVersion : 21.0.3
+Publisher      : Image-Line
+InstallDate    : 
+GUID           : FL Studio 21
+BitType        : x86
+
+DisplayName    : FL Studio ASIO
+DisplayVersion : 
+Publisher      : Image-Line
+InstallDate    : 
+GUID           : FL Studio ASIO
+BitType        : x86
+
+DisplayName    : foobar2000 v2.1.5
+DisplayVersion : 2.1.5
+Publisher      : Peter Pawlowski
+InstallDate    : 
+GUID           : foobar2000
+BitType        : x86
+
+DisplayName    : GNS3
+DisplayVersion : 2.2.44.1
+Publisher      : GNS3 Technology Inc.
+InstallDate    : 
+GUID           : GNS3
+BitType        : x86
+
+DisplayName    : Google Chrome
+DisplayVersion : 128.0.6613.138
+Publisher      : Google LLC
+InstallDate    : 20240912
+GUID           : Google Chrome
+BitType        : x86
+
+DisplayName    : HandBrake 1.6.1
+DisplayVersion : 1.6.1
+Publisher      : 
+InstallDate    : 
+GUID           : HandBrake
+BitType        : x86
+
+DisplayName    : IntelliJ IDEA Community Edition 2023.2
+DisplayVersion : 232.8660.185
+Publisher      : JetBrains s.r.o.
+InstallDate    : 
+GUID           : IntelliJ IDEA Community Edition 2023.2
+BitType        : x86
+
+DisplayName    : Jellyfin Server 10.8.12 (64 bit)
+DisplayVersion : 10.8.12
+Publisher      : The Jellyfin Project
+InstallDate    : 
+GUID           : JellyfinServer
+BitType        : x86
+
+DisplayName    : KeePass Password Safe 2.55
+DisplayVersion : 2.55
+Publisher      : Dominik Reichl
+InstallDate    : 20231026
+GUID           : KeePassPasswordSafe2_is1
+BitType        : x86
+
+DisplayName    : LLVM
+DisplayVersion : 16.0.6
+Publisher      : LLVM
+InstallDate    : 
+GUID           : LLVM
+BitType        : x86
+
+DisplayName    : MakeMKV v1.17.5
+DisplayVersion : v1.17.5
+Publisher      : GuinpinSoft inc
+InstallDate    : 
+GUID           : MakeMKV
+BitType        : x86
+
+DisplayName    : Microsoft Edge
+DisplayVersion : 128.0.2739.79
+Publisher      : Microsoft Corporation
+InstallDate    : 20240914
+GUID           : Microsoft Edge
+BitType        : x86
+
+DisplayName    : Microsoft Edge Update
+DisplayVersion : 1.3.195.19
+Publisher      : 
+InstallDate    : 
+GUID           : Microsoft Edge Update
+BitType        : x86
+
+DisplayName    : Microsoft Edge WebView2 Runtime
+DisplayVersion : 128.0.2739.79
+Publisher      : Microsoft Corporation
+InstallDate    : 20240914
+GUID           : Microsoft EdgeWebView
+BitType        : x86
+
+DisplayName    : Nmap 7.80
+DisplayVersion : 7.80
+Publisher      : Nmap Project
+InstallDate    : 
+GUID           : Nmap
+BitType        : x86
+
+DisplayName    : Npcap
+DisplayVersion : 1.78
+Publisher      : Nmap Project
+InstallDate    : 
+GUID           : NpcapInst
+BitType        : x86
+
+DisplayName    : OBS Studio
+DisplayVersion : 30.0.2
+Publisher      : OBS Project
+InstallDate    : 
+GUID           : OBS Studio
+BitType        : x86
+
+DisplayName    : OpenAL
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : OpenAL
+BitType        : x86
+
+DisplayName    : qBittorrent
+DisplayVersion : 4.6.3
+Publisher      : The qBittorrent project
+InstallDate    : 
+GUID           : qBittorrent
+BitType        : x86
+
+DisplayName    : Rainmeter
+DisplayVersion : 4.5.18
+Publisher      : Rainmeter
+InstallDate    : 202309Tuesday
+GUID           : Rainmeter
+BitType        : x86
+
+DisplayName    : Rockstar Games Launcher
+DisplayVersion : 1.0.90.1977
+Publisher      : Rockstar Games
+InstallDate    : 
+GUID           : Rockstar Games Launcher
+BitType        : x86
+
+DisplayName    : Rockstar Games Social Club
+DisplayVersion : 2.3.2.5
+Publisher      : Rockstar Games
+InstallDate    : 
+GUID           : Rockstar Games Social Club
+BitType        : x86
+
+DisplayName    : Steam
+DisplayVersion : 2.10.91.91
+Publisher      : Valve Corporation
+InstallDate    : 
+GUID           : Steam
+BitType        : x86
+
+DisplayName    : UltiMaker Cura 5.4.0
+DisplayVersion : 5.4.0
+Publisher      : UltiMaker
+InstallDate    : 
+GUID           : UltiMaker Cura 5.4.0-5.4.0
+BitType        : x86
+
+DisplayName    : VTF Explorer 1.3
+DisplayVersion : 
+Publisher      : Vyacheslav Dzhura
+InstallDate    : 
+GUID           : VTF Explorer_is1
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : WIC
+BitType        : x86
+
+DisplayName    : WinPcap 4.1.3
+DisplayVersion : 4.1.0.2980
+Publisher      : Riverbed Technology, Inc.
+InstallDate    : 
+GUID           : WinPcapInst
+BitType        : x86
+
+DisplayName    : Wireshark 4.2.6 x64
+DisplayVersion : 4.2.6
+Publisher      : The Wireshark developer community, https://www.wireshark.org
+InstallDate    : 
+GUID           : Wireshark
+BitType        : x86
+
+DisplayName    : Zotero
+DisplayVersion : 6.0.26
+Publisher      : Corporation for Digital Scholarship
+InstallDate    : 
+GUID           : Zotero 6.0.26 (x86 en-US)
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.40664
+DisplayVersion : 12.0.40664.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {042d26ef-3dbe-4c25-95d3-4c1b11b235a7}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.30501
+DisplayVersion : 12.0.30501.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {050d4fc8-5d48-4b8f-8972-47c82c46020f}
+BitType        : x86
+
+DisplayName    : Windows Deployment Tools Environment
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {0B16C789-61C9-17F5-68F2-E5019B5237A2}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2022 X86 Minimum Runtime - 14.40.33810
+DisplayVersion : 14.40.33810
+Publisher      : Microsoft Corporation
+InstallDate    : 20240722
+GUID           : {0C3457A0-3DCE-4A33-BEF0-9B528C557771}
+BitType        : x86
+
+DisplayName    : Imaging Tools Support (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {0C911545-71CE-5D6B-7F88-0C931A80BB86}
+BitType        : x86
+
+DisplayName    : Windows PE Boot Files (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240821
+GUID           : {10359BF6-B3FD-C0ED-69CE-2A40A7667A0F}
+BitType        : x86
+
+DisplayName    : obs-backgroundremoval version 1.1.7
+DisplayVersion : 1.1.7
+Publisher      : Roy Shilkrot
+InstallDate    : 20231105
+GUID           : {1527c9ec-2638-4e3b-94d7-cc25d27cd725}_is1
+BitType        : x86
+
+DisplayName    : MSI Center SDK
+DisplayVersion : 3.2023.1127.01
+Publisher      : MSI
+InstallDate    : 20240204
+GUID           : {15289038-41BE-48F8-B8B9-0B1021D3089E}}_is1
+BitType        : x86
+
+DisplayName    : Windows SDK AddOn
+DisplayVersion : 10.1.0.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20230724
+GUID           : {15941C7F-810D-41DF-8C5A-8D0490277AFB}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.7.2 Targeting Pack
+DisplayVersion : 4.7.03062
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {1784A8CD-F7FE-47E2-A87D-1F31E7242D0D}
+BitType        : x86
+
+DisplayName    : Python Launcher
+DisplayVersion : 3.9.7806.0
+Publisher      : Python Software Foundation
+InstallDate    : 20230724
+GUID           : {1A8286E4-2F70-4165-B2BF-CC6B49664005}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework Cumulative Intellisense Pack for Visual Studio (ENU)
+DisplayVersion : 4.8.09037
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {1A9C3A1A-566B-4CFA-8B27-71FC623963BE}
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2151757
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2467173
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2524860
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2544655
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2549743
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB2565063
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {1D8E6291-B0D5-35EC-8441-6616F567A0F7}.KB982573
+BitType        : x86
+
+DisplayName    : Ableton Live 11 Suite
+DisplayVersion : 11.0.0.0
+Publisher      : Ableton
+InstallDate    : 
+GUID           : {1debf041-c42f-4aca-839d-550648c00239}
+BitType        : x86
+
+DisplayName    : Kits Configuration Installer
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {1F087298-69A5-5C5B-10CA-1E0DF4FA2414}
+BitType        : x86
+
+DisplayName    : User State Migration Tool (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {24A76BDB-7431-E81C-86AD-A83B841E52B8}
+BitType        : x86
+
+DisplayName    : vs_minshellsharedmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {2A1FB39E-C04E-4DD1-A8E9-5AF8E4DC5DDA}
+BitType        : x86
+
+DisplayName    : Windows Deployment Image Servicing and Management Tools (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {2B8692B7-FCD7-0B26-9DBC-422E2C74ABD3}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.1 SDK
+DisplayVersion : 4.6.01055
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {2F0ECC80-B9E4-4485-8083-CD32F22ABD92}
+BitType        : x86
+
+DisplayName    : Windows Setup Files (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {2F8E0B00-34FD-C96F-448E-D2CCEEC07427}
+BitType        : x86
+
+DisplayName    : icecap_collectionresources
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {311BAE3E-A1A9-44CD-AD58-C6539CD3E86C}
+BitType        : x86
+
+DisplayName    : User State Migration Tool (ClientCore)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {31F3BC0E-3F3F-BE6D-8228-67EC55F8DD10}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Host - 8.0.8 (x86)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {3209B242-F6A9-4EA3-87D0-0855DECFB5FF}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030
+DisplayVersion : 11.0.61030.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {33d1fd90-4274-48a1-9bc1-97e33d9c2d6f}
+BitType        : x86
+
+DisplayName    : AMD PPM Provisioning File Driver
+DisplayVersion : 8.0.0.27
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {3665A5DE-D07C-46D7-9207-713E8E9FEF32}
+BitType        : x86
+
+DisplayName    : NexiGo version 1.0
+DisplayVersion : 1.0
+Publisher      : Nexight Inc
+InstallDate    : 20240220
+GUID           : {36A02147-C92C-458A-8284-E3903A0C4239}_is1
+BitType        : x86
+
+DisplayName    : vs_tipsmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {39D747CD-E324-4687-B068-7E2EC1066B2C}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.2 Developer Pack
+DisplayVersion : 4.6.1590
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {3ef1fc32-716a-4106-8753-508ce6d0b270}
+BitType        : x86
+
+DisplayName    : Microsoft ASP.NET Core 8.0.8 Targeting Pack (x86)
+DisplayVersion : 8.0.8.24369
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {405586AB-4481-3D44-A4EF-BE06EBB7C6E3}
+BitType        : x86
+
+DisplayName    : DYMO Connect
+DisplayVersion : 1.4.6.37
+Publisher      : DYMO
+InstallDate    : 20240517
+GUID           : {41850E4B-507E-48CB-8A15-8C7E7D23A728}
+BitType        : x86
+
+DisplayName    : AMD_Chipset_Drivers
+DisplayVersion : 6.01.25.342
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {42e5a8d4-8fb0-48a1-9063-fc159c7566a0}
+BitType        : x86
+
+DisplayName    : vs_vswebprotocolselectormsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {45BF09E7-745C-4EA8-AB3D-2F734AB57EB2}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2015-2022 Redistributable (x86) - 14.40.33810
+DisplayVersion : 14.40.33810.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {47109d57-d746-4f8b-9618-ed6a17cc922b}
+BitType        : x86
+
+DisplayName    : Windows PE Scripts
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240821
+GUID           : {479FD1EE-8C23-9570-44BD-3133C54E110A}
+BitType        : x86
+
+DisplayName    : Java Auto Updater
+DisplayVersion : 2.8.421.9
+Publisher      : Oracle Corporation
+InstallDate    : 20240913
+GUID           : {4A03706F-666A-4037-7777-5F2748764D10}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Core Runtime - 2.0.9 (x64)
+DisplayVersion : 2.0.9.26615
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {4bee2200-234d-4a46-8eba-4b6df655e0a4}
+BitType        : x86
+
+DisplayName    : User State Migration Tool (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {51F3D6FA-5C4A-E8E5-B811-5F9F21AA04DB}
+BitType        : x86
+
+DisplayName    : vs_CoreEditorFonts
+DisplayVersion : 17.6.33605
+Publisher      : Microsoft Corporation
+InstallDate    : 20230629
+GUID           : {56FB5923-1A95-4D55-BE78-CD42B50E67AD}
+BitType        : x86
+
+DisplayName    : vs_filehandler_amd64
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {5845E00D-7409-475B-B7F3-D88C2598D7D4}
+BitType        : x86
+
+DisplayName    : icecap_collection_neutral
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {58D16D0C-E3A5-44F4-B44D-FE43AD45F251}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Runtime - 8.0.8 (x86)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {5AC5E5D4-940F-4577-B982-CE3C3F7C571B}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2015-2022 Redistributable (x64) - 14.40.33810
+DisplayVersion : 14.40.33810.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {5af95fd8-a22e-458f-acee-c61bd787178e}
+BitType        : x86
+
+DisplayName    : vs_filehandler_x86
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {5E7CA2F5-FE75-4D40-8533-653524E82407}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2022 X86 Additional Runtime - 14.40.33810
+DisplayVersion : 14.40.33810
+Publisher      : Microsoft Corporation
+InstallDate    : 20240722
+GUID           : {5EA6C998-D5AC-4ED9-89C3-9F25B17CCD3D}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.2 SDK
+DisplayVersion : 4.6.01590
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {5F01B3C4-9BEC-465D-9C68-BB97D381FFAD}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Host FX Resolver - 8.0.8 (x86)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {62F76737-408B-4CFD-8B8B-5FA4CADDE189}
+BitType        : x86
+
+DisplayName    : Windows Assessment and Deployment Kit
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {665ec413-9c69-4696-b6d8-55d44bf46ac3}
+BitType        : x86
+
+DisplayName    : Windows Assessment and Deployment Kit Windows Preinstallation Environment Add-ons
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {6775d5ee-c051-497c-aba6-344bbc5c896a}
+BitType        : x86
+
+DisplayName    : Windows Setup Files (ClientCore)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {67AAC98C-C648-A437-B426-75D69958BAFC}
+BitType        : x86
+
+DisplayName    : Apple Software Update
+DisplayVersion : 2.1.1.116
+Publisher      : Apple Inc.
+InstallDate    : 20231024
+GUID           : {6956856F-B6B3-4BE0-BA0B-8F495BE32033}
+BitType        : x86
+
+DisplayName    : vs_clickoncesigntoolmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {6CAA3F5E-6F43-48D7-9465-2543DCD3EB62}
+BitType        : x86
+
+DisplayName    : vs_minshellmsires
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {6E1E4E9A-2444-420C-A425-9C219C795A4F}
+BitType        : x86
+
+DisplayName    : Supply Chain Trust Tools ADK
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {6E2BE8A8-14CD-4398-C3C7-BEC43B695456}
+BitType        : x86
+
+DisplayName    : Teams Machine-Wide Installer
+DisplayVersion : 1.6.0.11166
+Publisher      : Microsoft Corporation
+InstallDate    : 20230702
+GUID           : {731F6BAA-A986-45A4-8936-7C3AAAAA760B}
+BitType        : x86
+
+DisplayName    : MMFonts
+DisplayVersion : 1.1.1.1
+Publisher      : MakeMusic, Inc.
+InstallDate    : 20230629
+GUID           : {7564F180-CD44-4721-88FB-F88E7782D604}
+BitType        : x86
+
+DisplayName    : DYMO Label
+DisplayVersion : 8.7.4.48936
+Publisher      : Newell Rubbermaid
+InstallDate    : 20240127
+GUID           : {764D82EE-A8F0-426A-88B8-71AC3B28E332}
+BitType        : x86
+
+DisplayName    : icecap_collectionresourcesx64
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {79843879-0BDC-474A-8172-5193A6A38A13}
+BitType        : x86
+
+DisplayName    : Microsoft ASP.NET Core 8.0.8 Shared Framework (x86)
+DisplayVersion : 8.0.8.24369
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {7B2D558D-210D-349B-816A-C7BF57748E3C}
+BitType        : x86
+
+DisplayName    : Oscdimg (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {7DD610E9-09B1-F17B-0194-82BA52087903}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x64) - 12.0.21005
+DisplayVersion : 12.0.21005.1
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {7f51bdb9-ee21-49ee-94d6-90afc321780e}
+BitType        : x86
+
+DisplayName    : Microsoft TestPlatform SDK Local Feed
+DisplayVersion : 17.10.0.9037153
+Publisher      : Microsoft
+InstallDate    : 20240805
+GUID           : {7F86DEBA-AF7D-43F2-8312-DBCB65F116A9}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 x86 Minimum Runtime - 12.0.40664
+DisplayVersion : 12.0.40664
+Publisher      : Microsoft Corporation
+InstallDate    : 20230718
+GUID           : {8122DAB1-ED4D-3676-BB0A-CA368196543E}
+BitType        : x86
+
+DisplayName    : vs_minshellinteropsharedmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {850190D6-F1E2-42BB-89F9-6E73A0836599}
+BitType        : x86
+
+DisplayName    : vcpp_crt.redist.clickonce
+DisplayVersion : 14.40.33810
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {86A92FDF-05A2-4B6E-AEE8-EFB68E7FF6B5}
+BitType        : x86
+
+DisplayName    : OACheck
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {8894D8FF-9C3D-626D-90F8-209B05006BA7}
+BitType        : x86
+
+DisplayName    : vs_clickoncebootstrappermsi
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {890533B4-4F0A-4726-8F54-A8A1B27BC42B}
+BitType        : x86
+
+DisplayName    : ELECOM MouseAssistant5
+DisplayVersion : 5.2.1400.00000
+Publisher      : ELECOM
+InstallDate    : 20240917
+GUID           : {8B1706AF-452F-47DB-B769-C8C38681E355}
+BitType        : x86
+
+DisplayName    : Windows Setup Files (ShellCommon)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {8BA09ACB-D6D8-F213-5343-7C96AC2E6504}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.1 Targeting Pack
+DisplayVersion : 4.6.01055
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {8BC3EEC9-090F-4C53-A8DA-1BEC913040F9}
+BitType        : x86
+
+DisplayName    : Microsoft Windows Desktop Targeting Pack - 8.0.8 (x86)
+DisplayVersion : 64.32.18376
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {8ED653AE-3C4A-44BC-BA64-82A9EE29FCA1}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.1 Targeting Pack (ENU)
+DisplayVersion : 4.6.01055
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {8EEB28EE-5141-411C-9CF0-9952264FE4AF}
+BitType        : x86
+
+DisplayName    : OA3Tool
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {8EF6F3A9-5741-1D02-3FD7-8E34CF667DF0}
+BitType        : x86
+
+DisplayName    : PowerShell 7.4.3.0-x64
+DisplayVersion : 7.4.3.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {8f477957-4a80-4514-9943-25a7614782b0}
+BitType        : x86
+
+DisplayName    : Microsoft Office Access database engine 2007 (English)
+DisplayVersion : 12.0.6612.1000
+Publisher      : Microsoft Corporation
+InstallDate    : 20231019
+GUID           : {90120000-00D1-0409-0000-0000000FF1CE}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.8 SDK
+DisplayVersion : 4.8.03928
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {949C0535-171C-480F-9CF4-D25C9E60FE88}
+BitType        : x86
+
+DisplayName    : Windows Deployment Customizations
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {94ED6B3F-F5B3-D6F7-1F30-4529C24D4B68}
+BitType        : x86
+
+DisplayName    : NordVPN network TAP
+DisplayVersion : 1.0.1
+Publisher      : NordVPN
+InstallDate    : 20230812
+GUID           : {97DEC5D6-2BE9-45BB-BFC5-274B851B486B}
+BitType        : x86
+
+DisplayName    : Windows PE Boot Files (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240821
+GUID           : {9822D741-A546-4AAE-9F74-15C725BAE8FE}
+BitType        : x86
+
+DisplayName    : AMD PSP Driver
+DisplayVersion : 5.26.0.0
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {988F14B8-79A8-475D-BAC7-83F96AD3D821}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2008 Redistributable - x86 9.0.30729.6161
+DisplayVersion : 9.0.30729.6161
+Publisher      : Microsoft Corporation
+InstallDate    : 20230725
+GUID           : {9BE518E6-ECC6-35A9-88E4-87755C07200F}
+BitType        : x86
+
+DisplayName    : vs_SQLClickOnceBootstrappermsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {9CBEF6C3-C91E-4838-A4BE-EEC6FB65AC5E}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.40664
+DisplayVersion : 12.0.40664.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {9dff3540-fc85-4ed5-ac84-9e3c7fd8bece}
+BitType        : x86
+
+DisplayName    : Windows Deployment Image Servicing and Management Tools (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {9E6A5F74-2F69-3CC6-57C4-4F2FB4793467}
+BitType        : x86
+
+DisplayName    : Windows Setup Files (Holographic)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {9F86BF00-5EBE-304F-4286-98E8A1253FFE}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.2 Targeting Pack
+DisplayVersion : 4.6.01590
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {A18D4C2A-07A8-40E4-9797-DD324E6EA4FC}
+BitType        : x86
+
+DisplayName    : vs_communitysharedmsi
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {A4A2A751-37FE-4EEA-89CC-12004BFD4C86}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.8 Targeting Pack (ENU)
+DisplayVersion : 4.8.03761
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {A4EA9EE5-7CFF-4C5F-B159-B9B4E5D2BDE2}
+BitType        : x86
+
+DisplayName    : Windows System Image Manager
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {A50FDA66-9FBB-A423-19B2-FAA8E915CCF9}
+BitType        : x86
+
+DisplayName    : Microsoft Visual Studio Setup WMI Provider
+DisplayVersion : 3.11.2133.16870
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {A59EAC01-288D-41BA-B6F2-3DF78DEA16E0}
+BitType        : x86
+
+DisplayName    : Imaging Designer (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {A8029CE5-851B-D60D-3A5B-99FE04333560}
+BitType        : x86
+
+DisplayName    : AMD SBxxx SMBus Driver
+DisplayVersion : 5.12.0.38
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {AAE0E27D-C88A-49BA-8715-77ADCD4286A3}
+BitType        : x86
+
+DisplayName    : vs_githubprotocolhandlermsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {AB3E3E33-5938-42C8-8A56-DD883DA35667}
+BitType        : x86
+
+DisplayName    : Imaging Tools Support (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {ACEF0783-8DD4-DAAB-8885-527C4B8B7A21}
+BitType        : x86
+
+DisplayName    : Toolkit Documentation
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {AF3A2D9E-9494-A1E5-1185-4FF3FB4688A8}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2012 x86 Additional Runtime - 11.0.61030
+DisplayVersion : 11.0.61030
+Publisher      : Microsoft Corporation
+InstallDate    : 20230705
+GUID           : {B175520C-86A2-35A7-8619-86DC379688B9}
+BitType        : x86
+
+DisplayName    : Windows Deployment Tools
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {B30B4A08-0946-44E6-C5AC-6C2563D08195}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.7.2 Targeting Pack (ENU)
+DisplayVersion : 4.7.03062
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {B517DBD3-B542-4FC8-9957-FFB2C3E65D1D}
+BitType        : x86
+
+DisplayName    : Promontory_GPIO Driver
+DisplayVersion : 3.0.0.0
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {B5512BCC-F4CD-4159-86A4-B2AD7D38FFA9}
+BitType        : x86
+
+DisplayName    : Microsoft .NET SDK 8.0.401 (x64)
+DisplayVersion : 8.4.124.41202
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {b57e79a0-3a17-4095-b4b1-c2a1ee9aa2ee}
+BitType        : x86
+
+DisplayName    : Oscdimg (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {B80EA8B8-0179-5F03-2B01-F9C525FE3E87}
+BitType        : x86
+
+DisplayName    : STAR WARS Jedi - Survivor™
+DisplayVersion : 1.0.0.9
+Publisher      : Electronic Arts, Inc.
+InstallDate    : 
+GUID           : {B9CBE70C-C93E-467A-B112-D126650B08A5}
+BitType        : x86
+
+DisplayName    : vs_clickoncebootstrappermsires
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {BA2E09EF-8839-49DC-A949-639C569FB2F4}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.8 Targeting Pack
+DisplayVersion : 4.8.03761
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {BAAF5851-0759-422D-A1E9-90061B597188}
+BitType        : x86
+
+DisplayName    : EA app
+DisplayVersion : 13.248.0.5761
+Publisher      : Electronic Arts
+InstallDate    : 
+GUID           : {bac55186-eb4d-4d09-86b1-fe0fb1d00904}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2012 x86 Minimum Runtime - 11.0.61030
+DisplayVersion : 11.0.61030
+Publisher      : Microsoft Corporation
+InstallDate    : 20230705
+GUID           : {BD95A8CD-1D9F-35AD-981A-3E7925026EBB}
+BitType        : x86
+
+DisplayName    : ClickOnce Bootstrapper Package for Microsoft .NET Framework
+DisplayVersion : 4.8.09256
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {BDF8C840-5B9A-4D9B-9BCA-CE4163973563}
+BitType        : x86
+
+DisplayName    : VS Immersive Activate Helper
+DisplayVersion : 17.0.157.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {BE00F49A-2FA1-46E6-B30F-A2653BF7CD75}
+BitType        : x86
+
+DisplayName    : Project64 version 3.0.1.5664
+DisplayVersion : 3.0.1.5664
+Publisher      : 
+InstallDate    : 20240505
+GUID           : {BEB5FB69-4080-466F-96C4-F15DF271718B}_is1
+BitType        : x86
+
+DisplayName    : Samsung DeX
+DisplayVersion : 2.4.1.23
+Publisher      : Samsung Electronics Co., Ltd.
+InstallDate    : 20240625
+GUID           : {BF45503A-A12E-4129-BD7D-69298E4935D5}
+BitType        : x86
+
+DisplayName    : OEM Test Certificates (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {C66E13EE-F403-18BF-8497-4A4B91BED4F5}
+BitType        : x86
+
+DisplayName    : Windows PE wims (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240821
+GUID           : {C6CB0DF0-B1BD-3CF0-4056-3D63832B3AD6}
+BitType        : x86
+
+DisplayName    : Imaging And Configuration Designer (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {C7A030B1-43B7-E2D0-DBAF-7ECD54EFD0B4}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.2 Targeting Pack (ENU)
+DisplayVersion : 4.6.01590
+Publisher      : Microsoft Corporation
+InstallDate    : 20230722
+GUID           : {C80951BD-6904-474F-BBC5-03A6C777F37C}
+BitType        : x86
+
+DisplayName    : IntelliTraceProfilerProxy
+DisplayVersion : 15.0.21225.01
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {C8891AD2-C223-45CD-A9BE-617A68923B61}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030
+DisplayVersion : 11.0.61030.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {ca67548a-5ebe-413a-b50c-4b9ceb6d66c6}
+BitType        : x86
+
+DisplayName    : OATool
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {CA9642D4-AFAD-507D-8574-099782F2CAFA}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Framework 4.6.1 Developer Pack
+DisplayVersion : 4.6.1055
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {cb2c12b3-4bbd-487c-8a02-2af811a76cba}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.21005
+DisplayVersion : 12.0.21005.1
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {ce085a78-074e-4823-8dc1-8a721b94b76d}
+BitType        : x86
+
+DisplayName    : BCD and Boot
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {CE885DDB-3903-8E40-34E1-7F1698BC212C}
+BitType        : x86
+
+DisplayName    : vs_communitymsires
+DisplayVersion : 17.11.35103
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {CF279433-F65F-4251-A230-559DBB860887}
+BitType        : x86
+
+DisplayName    : Microsoft .NET SDK 8.0.304 (x64)
+DisplayVersion : 8.3.424.37202
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {d3995ae3-fbd9-43ce-8994-9af750d4380a}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 x86 Additional Runtime - 12.0.40664
+DisplayVersion : 12.0.40664
+Publisher      : Microsoft Corporation
+InstallDate    : 20230718
+GUID           : {D401961D-3A20-3AC7-943B-6139D5BD490A}
+BitType        : x86
+
+DisplayName    : Imaging And Configuration Designer (OnecoreUAP)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {D42B50E1-0B5F-47E3-EE28-8F8A719E2898}
+BitType        : x86
+
+DisplayName    : T.Flight Hotas drivers
+DisplayVersion : 2.TFHT.2023
+Publisher      : Thrustmaster
+InstallDate    : 20240124
+GUID           : {E08E6F77-E66C-47FC-8565-0AA3389D48C8}
+BitType        : x86
+
+DisplayName    : AMD GPIO2 Driver
+DisplayVersion : 2.2.0.130
+Publisher      : Advanced Micro Devices, Inc.
+InstallDate    : 20240525
+GUID           : {E9DD399F-21A3-479E-A7DF-D6CF4B2ADBF3}
+BitType        : x86
+
+DisplayName    : Windows PE Optional Packages (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240821
+GUID           : {E9E8CCD6-DEFE-EC84-6163-67BD7BDE427D}
+BitType        : x86
+
+DisplayName    : Microsoft Windows Desktop Runtime - 6.0.33 (x64)
+DisplayVersion : 6.0.33.33916
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {ecb94bc3-963d-412a-b141-8b7c32ef103f}
+BitType        : x86
+
+DisplayName    : Microsoft Visual Studio Setup Configuration
+DisplayVersion : 3.11.2133.16870
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {EE86461C-2B52-4E27-A5ED-4D59819BDD08}
+BitType        : x86
+
+DisplayName    : Microsoft .NET Targeting Pack - 8.0.8 (x86)
+DisplayVersion : 64.32.18380
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {F00684B4-E14C-4B29-A872-CEF86986449A}
+BitType        : x86
+
+DisplayName    : Entity Framework 6.2.0 Tools  for Visual Studio 2022
+DisplayVersion : 6.2.0.0
+Publisher      : Microsoft Corporation
+InstallDate    : 20240805
+GUID           : {F0495FAC-8E08-4F2F-801C-12880B242781}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2010  x86 Redistributable - 10.0.40219
+DisplayVersion : 10.0.40219
+Publisher      : Microsoft Corporation
+InstallDate    : 20230629
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2151757
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2467173
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2524860
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2544655
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2549743
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB2565063
+BitType        : x86
+
+DisplayName    : 
+DisplayVersion : 
+Publisher      : 
+InstallDate    : 
+GUID           : {F0C3E5D1-1ADE-321E-8167-68EF0DE699A5}.KB982573
+BitType        : x86
+
+DisplayName    : Samsung DeX
+DisplayVersion : 2.4.1.23
+Publisher      : Samsung Electronics Co., Ltd.
+InstallDate    : 
+GUID           : {f42ecc45-f53b-44db-9eca-12acf340c0e8}
+BitType        : x86
+
+DisplayName    : vs_FileTracker_Singleton
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F6235A6B-586B-4B74-91F5-B108C407085D}
+BitType        : x86
+
+DisplayName    : Microsoft Visual C++ 2013 Redistributable (x86) - 12.0.30501
+DisplayVersion : 12.0.30501.0
+Publisher      : Microsoft Corporation
+InstallDate    : 
+GUID           : {f65db027-aff3-4070-886a-0d87064aabb1}
+BitType        : x86
+
+DisplayName    : vs_BlendMsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F82603BE-9975-4B01-B586-84E5E6301C0D}
+BitType        : x86
+
+DisplayName    : vs_devenvsharedmsi
+DisplayVersion : 17.11.35102
+Publisher      : Microsoft Corporation
+InstallDate    : 20240911
+GUID           : {F8821BBC-45BE-481C-9A8C-EA9C87174F44}
+BitType        : x86
+
+DisplayName    : Imaging Designer (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {F9D00D8D-F841-D2F3-3B92-E9811221FEBD}
+BitType        : x86
+
+DisplayName    : Windows Deployment Image Servicing and Management - Headers and Libraries
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {FBE4920D-7085-7350-53C6-0584E0BF378D}
+BitType        : x86
+
+DisplayName    : Windows Setup Files (DesktopEditions)
+DisplayVersion : 10.1.26100.1
+Publisher      : Microsoft
+InstallDate    : 20240819
+GUID           : {FCE46EDC-4064-A011-6D43-CDD994BCBD6B}
+BitType        : x86
+
+DisplayName    : Microsoft Windows Desktop Runtime - 8.0.8 (x86)
+DisplayVersion : 64.32.18376
+Publisher      : Microsoft Corporation
+InstallDate    : 20240814
+GUID           : {FD1476AE-CD75-4088-AE44-D6D95BA02663}
+BitType        : x86
+
+   ♥ 21:35:46 RAM: 21/31GB   152ms                                                            main ≡  ?5 
+  \OneDrive\Programming\PowerShell   ]0;PowerShell
+PS>Stop-Transcript
+**********************
+PowerShell transcript end
+End time: 20240919213604
+**********************
