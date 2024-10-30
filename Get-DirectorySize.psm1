@@ -1,3 +1,7 @@
+# TODO: Add tree option
+
+# TODO: Automatically filter out files (useful when using `Get-ChildItems | Get-Directory Size`)
+
 function Get-DirectorySize {
     <#
         .SYNOPSIS
