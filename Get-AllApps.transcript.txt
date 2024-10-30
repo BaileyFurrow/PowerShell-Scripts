@@ -18,33 +18,33 @@ SerializationVersion: 1.1.0.1
 WSManStackVersion: 3.0
 **********************
 Transcript started, output file is ./Get-AllApps.transcript.txt
-   ♥ 21:12:26 RAM: 21/31GB   26ms                                                             main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$Apps = @()
-   ♥ 21:12:33 RAM: 20/31GB   0ms                                                              main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$props = "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}}
-   ♥ 21:17:34 RAM: 20/31GB   7ms                                                              main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name="BitType";Exp={"x64"}}
 At line:1 char:103
-+ … oft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name= …
+
 +                                                          ~~~~~~
 Splatted variables like '@props' cannot be part of a comma-separated list of arguments.
 ParserError: 
 Line |
-   1 |  … oft\Windows\CurrentVersion\Uninstall\* | Select-Object @props,@{Name= …
+
      |                                                           ~~~~~~
      | Splatted variables like '@props' cannot be part of a comma-separated list of arguments.
 
-   ♥ 21:19:18 RAM: 21/31GB   0ms                                                              main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}},@{Name="BitType";Exp={"x64"}}
-   ♥ 21:34:58 RAM: 21/31GB   105ms                                                            main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$Apps += Get-ItemProperty HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object "DisplayName","DisplayVersion","Publisher","InstallDate",@{Name="GUID";Exp={$_.PSChildName}},@{Name="BitType";Exp={"x86"}}
-   ♥ 21:35:38 RAM: 21/31GB   135ms                                                            main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>$apps
 
 DisplayName    : 7-Zip 23.01 (x64)
@@ -2301,7 +2301,7 @@ InstallDate    : 20240819
 GUID           : {B80EA8B8-0179-5F03-2B01-F9C525FE3E87}
 BitType        : x86
 
-DisplayName    : STAR WARS Jedi - Survivor™
+
 DisplayVersion : 1.0.0.9
 Publisher      : Electronic Arts, Inc.
 InstallDate    : 
@@ -2630,8 +2630,8 @@ InstallDate    : 20240814
 GUID           : {FD1476AE-CD75-4088-AE44-D6D95BA02663}
 BitType        : x86
 
-   ♥ 21:35:46 RAM: 21/31GB   152ms                                                            main ≡  ?5 
-  \OneDrive\Programming\PowerShell   ]0;PowerShell
+
+
 PS>Stop-Transcript
 **********************
 PowerShell transcript end
