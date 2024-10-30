@@ -1,10 +1,15 @@
+param (
+    [switch] $NoInstall
+)
 # This must be run as admin in order to make the necessary registry changes.
 
 $ShareXInstallFile = "./sharex-16.1.0.exe"
 
 # Install ShareX silently
 
-Invoke-Item -Path "$ShareXInstallFile /VERYSILENT"
+if ($NoInstall) {
+    Invoke-Item -Path "$ShareXInstallFile /VERYSILENT"
+}
 
 # Create ShareX registry key
 
