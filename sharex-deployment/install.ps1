@@ -7,7 +7,7 @@ $ShareXInstallFile = "./sharex-16.1.0.exe"
 
 # Install ShareX silently
 
-if ($NoInstall) {
+if (-not $NoInstall) {
     Invoke-Item -Path "$ShareXInstallFile /VERYSILENT"
 }
 
