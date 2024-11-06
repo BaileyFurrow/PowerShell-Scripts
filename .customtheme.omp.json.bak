@@ -1,0 +1,133 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "auto_upgrade": true,
+  "console_title_template": "{{ .Folder }}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "foreground": "#011627",
+          "background": "#FEF5ED",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#FEF5ED>\ue0b2</>",
+          "template": " {{ if .WSL }}WSL at {{ end }}{{.Icon}}",
+          "properties": {
+            "macos": "\uf179 ",
+            "ubuntu": "\uf31b ",
+            "windows": "\ue62a "
+          }
+        },
+        {
+          "type": "time",
+          "style": "diamond",
+          "foreground": "#011627",
+          "background": "#FEF5ED",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#FEF5ED>\ue0b2</>",
+          "template": " ♥ {{ .CurrentDate | date .Format }} ",
+          "properties": {
+            "time_format": "15:04:05"
+          }
+        },
+        {
+          "type": "sysinfo",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#516BEB",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#516BEB>\ue0b2</>",
+          "template": "RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB \ue266 "
+        },
+        {
+          "type": "executiontime",
+          "style": "diamond",
+          "foreground": "#d6deeb",
+          "background": "#575656",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ .FormattedMs }} ",
+          "properties": {
+            "style": "roundrock",
+            "threshold": 0
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "node",
+          "style": "diamond",
+          "foreground": "#000000",
+          "background": "#ffffff",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
+          "template": "\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+          "properties": {
+            "fetch_package_manager": true,
+            "npm_icon": " <#cc3a3a>\ue5fa</> ",
+            "yarn_icon": " <#348cba>\ue6a7</>"
+          }
+        },
+        {
+          "type": "git",
+          "style": "diamond",
+          "foreground": "#011627",
+          "background": "#17D7A0",
+          "leading_diamond": "\ue0b2",
+          "trailing_diamond": "\ue0b0",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+          "properties": {
+            "branch_icon": "\ue725 ",
+            "fetch_stash_count": true,
+            "fetch_status": true,
+            "fetch_upstream_icon": true,
+            "fetch_worktree_count": true
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "path",
+          "style": "diamond",
+          "foreground": "#62b200",
+          "template": " \ue5ff {{ .Path }} ",
+          "properties": {
+            "folder_icon": "\uf07b",
+            "home_icon": "\uf4e2",
+            "style": "agnoster_full"
+          }
+        },
+        {
+          "type": "status",
+          "style": "plain",
+          "foreground": "#00ff15",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#ff0000{{ end }}"
+          ],
+          "template": " \uf004 ",
+          "properties": {
+            "always_enabled": true
+          }
+        }
+      ],
+      "newline": true
+    }
+  ],
+  "transient_prompt": {
+    "foreground": "#FEF5ED",
+    "background": "transparent",
+    "template": "\ue285 "
+  }
+}

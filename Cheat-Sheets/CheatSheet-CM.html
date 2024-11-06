@@ -1,0 +1,325 @@
+<h1 id="powershell-cheat-sheet-configuration-manager">PowerShell Cheat Sheet - Configuration Manager</h1>
+<h2 id="initial-setup"><strong>Initial Setup</strong></h2>
+<ul>
+<li><p><strong>Import the SCCM PowerShell Module</strong></p>
+<pre><code class="language-powershell">Import-Module &quot;$($env:SMS_ADMIN_UI_PATH)\..\ConfigurationManager.psd1&quot;
+</code></pre>
+</li>
+<li><p><strong>Set the SCCM Site Code</strong> – Replace <code>XYZ</code> with your specific site code.</p>
+<pre><code class="language-powershell">$SiteCode = &quot;XYZ&quot;
+cd &quot;$SiteCode:&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="collections-management"><strong>Collections Management</strong></h2>
+<ul>
+<li><p><strong>List All Collections</strong> (Device &amp; User)</p>
+<pre><code class="language-powershell">Get-CMCollection
+</code></pre>
+</li>
+<li><p><strong>Get Detailed Information About a Collection</strong></p>
+<pre><code class="language-powershell">Get-CMDeviceCollection -Name &quot;CollectionName&quot; | Select-Object *
+</code></pre>
+</li>
+<li><p><strong>List All Devices in a Collection</strong></p>
+<pre><code class="language-powershell">Get-CMDeviceCollectionMember -CollectionName &quot;CollectionName&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="device-management"><strong>Device Management</strong></h2>
+<ul>
+<li><p><strong>List All Devices with Extended Properties</strong></p>
+<pre><code class="language-powershell">Get-CMDevice | Select-Object Name, DeviceID, ResourceID, SMSAssignedSites, AgentEdition, ClientVersion
+</code></pre>
+</li>
+<li><p><strong>Get Device by MAC Address</strong></p>
+<pre><code class="language-powershell">Get-CMDevice -MACAddress &quot;00-1A-2B-3C-4D-5E&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="application-management"><strong>Application Management</strong></h2>
+<ul>
+<li><p><strong>List All Applications with Additional Details</strong></p>
+<pre><code class="language-powershell">Get-CMApplication | Select-Object LocalizedDisplayName, SoftwareVersion, Manufacturer, DeploymentType
+</code></pre>
+</li>
+<li><p><strong>Get Detailed Information About an Application</strong></p>
+<pre><code class="language-powershell">Get-CMApplication -Name &quot;AppName&quot; | Select-Object *
+</code></pre>
+</li>
+<li><p><strong>Modify Application Deployment Type</strong></p>
+<pre><code class="language-powershell">Set-CMDeploymentType -ApplicationName &quot;AppName&quot; -DeploymentTypeName &quot;AppDeploymentType&quot; -InstallCommand &quot;NewInstallCommand&quot;
+</code></pre>
+</li>
+<li><p><strong>Delete an Application</strong></p>
+<pre><code class="language-powershell">Remove-CMApplication -Name &quot;AppName&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="package-program-management"><strong>Package &amp; Program Management</strong></h2>
+<ul>
+<li><p><strong>Create a Package</strong></p>
+<pre><code class="language-powershell">New-CMPackage -Name &quot;PackageName&quot; -Path &quot;\\Server\Share\Source&quot; -Description &quot;Package for testing&quot;
+</code></pre>
+</li>
+<li><p><strong>Create a Program for a Package</strong></p>
+<pre><code class="language-powershell">New-CMProgram -PackageName &quot;PackageName&quot; -StandardProgramName &quot;ProgramName&quot; -CommandLine &quot;setup.exe /silent&quot; -Description &quot;Silent Install Program&quot;
+</code></pre>
+</li>
+<li><p><strong>Deploy a Package to a Collection</strong></p>
+<pre><code class="language-powershell">Start-CMPackageDeployment -PackageName &quot;PackageName&quot; -CollectionName &quot;CollectionName&quot; -DeploymentType Required
+</code></pre>
+</li>
+</ul>
+<h2 id="deployment-management"><strong>Deployment Management</strong></h2>
+<ul>
+<li><p><strong>List All Application Deployments</strong></p>
+<pre><code class="language-powershell">Get-CMApplicationDeployment
+</code></pre>
+</li>
+<li><p><strong>Get Deployment Details for a Specific Application</strong></p>
+<pre><code class="language-powershell">Get-CMApplicationDeployment -Name &quot;AppName&quot;
+</code></pre>
+</li>
+<li><p><strong>Update Deployment Properties</strong></p>
+<pre><code class="language-powershell">Set-CMDeployment -DeploymentID &lt;DeploymentID&gt; -NewDeadline $((Get-Date).AddDays(7))
+</code></pre>
+</li>
+<li><p><strong>Monitor Deployment Status</strong></p>
+<pre><code class="language-powershell">Get-CMDeploymentStatus -Name &quot;AppName&quot; -CollectionName &quot;CollectionName&quot;
+</code></pre>
+</li>
+<li><p><strong>Delete an Application Deployment</strong></p>
+<pre><code class="language-powershell">Remove-CMDeployment -DeploymentID &lt;DeploymentID&gt;
+</code></pre>
+</li>
+</ul>
+<h2 id="software-update-management"><strong>Software Update Management</strong></h2>
+<ul>
+<li><p><strong>List All Software Updates with Details</strong></p>
+<pre><code class="language-powershell">Get-CMSoftwareUpdate | Select-Object ArticleID, Title, DatePosted, IsDeployed
+</code></pre>
+</li>
+<li><p><strong>Synchronize Software Updates</strong></p>
+<pre><code class="language-powershell">Sync-CMSoftwareUpdate
+</code></pre>
+</li>
+<li><p><strong>Create a Software Update Group</strong></p>
+<pre><code class="language-powershell">New-CMSoftwareUpdateGroup -Name &quot;UpdateGroupName&quot;
+</code></pre>
+</li>
+<li><p><strong>Add Updates to Software Update Group</strong></p>
+<pre><code class="language-powershell">Add-CMSoftwareUpdateToGroup -SoftwareUpdateGroupName &quot;UpdateGroupName&quot; -SoftwareUpdateIDs &lt;UpdateID1&gt;, &lt;UpdateID2&gt;
+</code></pre>
+</li>
+<li><p><strong>Deploy Software Update Group to Collection</strong></p>
+<pre><code class="language-powershell">Start-CMSoftwareUpdateDeployment -DeploymentName &quot;UpdateDeployment&quot; -SoftwareUpdateGroupName &quot;UpdateGroupName&quot; -CollectionName &quot;CollectionName&quot; -Deadline ((Get-Date).AddDays(3))
+</code></pre>
+</li>
+</ul>
+<h2 id="compliance-baseline-management"><strong>Compliance &amp; Baseline Management</strong></h2>
+<ul>
+<li><p><strong>Get All Compliance Settings</strong></p>
+<pre><code class="language-powershell">Get-CMComplianceSetting
+</code></pre>
+</li>
+</ul>
+<h2 id="task-sequence-management"><strong>Task Sequence Management</strong></h2>
+<ul>
+<li><p><strong>List All Task Sequences with Details</strong></p>
+<pre><code class="language-powershell">Get-CMTaskSequence | Select-Object Name, PackageID, LastModified
+</code></pre>
+</li>
+<li><p><strong>Copy an Existing Task Sequence</strong></p>
+<pre><code class="language-powershell">Copy-CMTaskSequence -TaskSequenceName &quot;OriginalTaskSequence&quot; -NewTaskSequenceName &quot;CopiedTaskSequence&quot;
+</code></pre>
+</li>
+<li><p><strong>Edit Task Sequence Variable</strong></p>
+<pre><code class="language-powershell">Set-CMTaskSequenceVariable -TaskSequenceName &quot;TaskSequenceName&quot; -VariableName &quot;TSVar&quot; -Value &quot;NewValue&quot;
+</code></pre>
+</li>
+<li><p><strong>Delete a Task Sequence</strong></p>
+<pre><code class="language-powershell">Remove-CMTaskSequence -Name &quot;TaskSequenceName&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="client-actions"><strong>Client Actions</strong></h2>
+<ul>
+<li><p><strong>Trigger a Software Update Scan</strong></p>
+<pre><code class="language-powershell">Invoke-CMClientAction -DeviceName &quot;DeviceName&quot; -Action &quot;SoftwareUpdatesScanCycle&quot;
+</code></pre>
+</li>
+<li><p><strong>Initiate User Policy Retrieval</strong></p>
+<pre><code class="language-powershell">Invoke-CMClientAction -DeviceName &quot;DeviceName&quot; -Action &quot;RequestUserPolicy&quot;
+</code></pre>
+</li>
+<li><p><strong>Force Application Deployment Evaluation</strong></p>
+<pre><code class="language-powershell">Invoke-CMClientAction -DeviceName &quot;DeviceName&quot; -Action &quot;ApplicationDeploymentEvaluationCycle&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="monitoring-reporting"><strong>Monitoring &amp; Reporting</strong></h2>
+<ul>
+<li><p><strong>Get All Status Messages for a Deployment</strong></p>
+<pre><code class="language-powershell">Get-CMStatusMessage -DeploymentID &lt;DeploymentID&gt; | Select-Object MessageID, Component, MessageType, SiteCode
+</code></pre>
+</li>
+<li><p><strong>View Compliance Summary for a Collection</strong></p>
+<pre><code class="language-powershell">Get-CMComplianceSummaryReport -CollectionName &quot;CollectionName&quot;
+</code></pre>
+</li>
+<li><p><strong>Get Deployment Success Rate for a Collection</strong></p>
+<pre><code class="language-powershell">Get-CMDeploymentStatus -Name &quot;AppName&quot; -CollectionName &quot;CollectionName&quot; | Select-Object Name, EnforcementState, LastComplianceMessage
+</code></pre>
+</li>
+<li><p><strong>Export Report to CSV</strong></p>
+<pre><code class="language-powershell">Get-CMStatusMessage -CollectionName &quot;CollectionName&quot; | Export-Csv -Path &quot;C:\StatusMessages.csv&quot; -NoTypeInformation
+</code></pre>
+</li>
+</ul>
+<h2 id="queries"><strong>Queries</strong></h2>
+<p>Queries in SCCM help identify and organize resources based on criteria. Below are some PowerShell commands to create, retrieve, and work with queries.</p>
+<ul>
+<li><p><strong>List All Queries</strong></p>
+<pre><code class="language-powershell">Get-CMQuery
+</code></pre>
+</li>
+<li><p><strong>Get Query Details by Name</strong></p>
+<pre><code class="language-powershell">Get-CMQuery -Name &quot;QueryName&quot; | Select-Object *
+</code></pre>
+</li>
+<li><p><strong>Create a New Query</strong> – Creates a device query based on a simple attribute.</p>
+<pre><code class="language-powershell">New-CMQuery -Name &quot;Windows 10 Devices&quot; -CollectionName &quot;All Systems&quot; -QueryExpression &quot;<br />select SMS_R_SYSTEM.ResourceID,SMS_R_SYSTEM.Name<br />from SMS_R_System<br />where SMS_R_System.OperatingSystemNameandVersion like 'Microsoft Windows NT Workstation 10.0%'&quot;
+</code></pre>
+</li>
+<li><p><strong>Modify an Existing Query</strong></p>
+<pre><code class="language-powershell">Set-CMQuery -Name &quot;QueryName&quot; -NewQueryExpression &quot;<br />select * from SMS_R_System<br />where SMS_R_System.LastLogonTimestamp &gt;= (Get-Date).AddDays(-30)&quot;
+</code></pre>
+</li>
+<li><p><strong>Delete a Query</strong></p>
+<pre><code class="language-powershell">Remove-CMQuery -Name &quot;QueryName&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="reports"><strong>Reports</strong></h2>
+<p>Reports in SCCM provide data-driven insights into your environment. Here’s how to manage and run SCCM reports with PowerShell.</p>
+<ul>
+<li><p><strong>List All Reports</strong></p>
+<pre><code class="language-powershell">Get-CMReport
+</code></pre>
+</li>
+<li><p><strong>Get Report Details</strong></p>
+<pre><code class="language-powershell">Get-CMReport -Name &quot;ReportName&quot; | Select-Object *
+</code></pre>
+</li>
+<li><p><strong>Run a Report and Export Results to CSV</strong> – Running reports directly via PowerShell typically returns metadata, but you can use SQL queries to extract data if direct data output is needed.</p>
+<pre><code class="language-powershell">Invoke-Sqlcmd -Query &quot;SELECT * FROM v_ReportViewName&quot; -ServerInstance &quot;SQLServerInstance&quot; | Export-Csv -Path &quot;C:\ReportResults.csv&quot; -NoTypeInformation
+</code></pre>
+</li>
+<li><p><strong>Create a Report Folder</strong></p>
+<pre><code class="language-powershell">New-CMReportFolder -Name &quot;CustomReports&quot; -ParentFolderID 5000  # Replace with appropriate ParentFolderID
+</code></pre>
+</li>
+<li><p><strong>Create a New Report</strong> – Requires SQL query; adjust parameters as necessary.</p>
+<pre><code class="language-powershell">New-CMReport -Name &quot;Custom Report&quot; -CategoryID 1 -SQLQuery &quot;SELECT * FROM v_R_System&quot;
+</code></pre>
+</li>
+<li><p><strong>Delete a Report</strong></p>
+<pre><code class="language-powershell">Remove-CMReport -Name &quot;ReportName&quot;
+</code></pre>
+</li>
+</ul>
+<h2 id="user-device-affinity"><strong>User-Device Affinity</strong></h2>
+<p>User-device affinity (UDA) in SCCM establishes relationships between users and devices, helping target deployments or configurations to primary devices associated with specific users.</p>
+<ul>
+<li><p><strong>View User Affinity for a Device</strong></p>
+<pre><code class="language-powershell">Get-CMUserAffinity -DeviceName &quot;DeviceName&quot;
+</code></pre>
+</li>
+<li><p><strong>View Device Affinity for a User</strong></p>
+<pre><code class="language-powershell">Get-CMUserAffinity -UserName &quot;UserName&quot;
+</code></pre>
+</li>
+<li><p><strong>Add User-Device Affinity</strong> – Creates a direct user-device affinity.</p>
+<pre><code class="language-powershell">New-CMUserAffinity -UserName &quot;UserName&quot; -DeviceName &quot;DeviceName&quot; -PrimaryUsage $true
+</code></pre>
+</li>
+<li><p><strong>Remove User-Device Affinity</strong> – Removes an established user-device relationship.</p>
+<pre><code class="language-powershell">Remove-CMUserAffinity -UserName &quot;UserName&quot; -DeviceName &quot;DeviceName&quot;
+</code></pre>
+</li>
+<li><p><strong>List All Devices with Affinity for a User</strong> – Lists devices where the user is marked as primary.</p>
+<pre><code class="language-powershell">Get-CMUserAffinity -UserName &quot;UserName&quot; | Where-Object { $_.PrimaryUsage -eq $true }
+</code></pre>
+</li>
+<li><p><strong>Automatically Create User-Device Affinity Based on Usage</strong> – Configure settings in SCCM to allow automatic UDA creation based on user login history.</p>
+<pre><code class="language-powershell"># This setting needs to be configured within the SCCM console under Administration -&gt; Client Settings -&gt; Default Client Settings -&gt; User and Device Affinity
+</code></pre>
+</li>
+</ul>
+
+<script src="../../prism.js/prism.js"></script>
+<link href="../../prism.js/prism.css" rel="stylesheet" />
+
+<script>
+    document.querySelectorAll("code").forEach((codeElement) => {
+        // Replace each pipe character with a span-wrapped version
+        codeElement.innerHTML = codeElement.innerHTML.replace(/\|/g, '|<br />');
+        codeElement.innerHTML = codeElement.innerHTML.replace(/ -/g, ' <wbr />-');
+        codeElement.innerHTML = codeElement.innerHTML.replace(/ @/g, ' <wbr />@');
+    });
+</script>
+
+<style>
+    body {
+        /* columns: 2; */
+        font-size: 12px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1 {
+        column-span: all;
+        text-align: center;
+        border: 1px solid black;
+        background-color: rgb(1, 36, 86);
+        padding: 1em;
+        color: rgb(224, 224, 224);
+    }
+    p {
+        margin: 0;
+    }
+    
+    li {
+        list-style:none;
+        break-inside: avoid;
+        /* display: inline-block; */
+    }
+    ul {
+        display: block;
+        /* break-after: page; */
+        padding: 0;
+    }
+    pre, code {
+        display: inline-block;
+        font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
+        font-weight: 200;
+    }
+    pre {
+        padding: 5px !important;
+    }
+    @media print {
+        .toolbar {
+            display: none;
+        }
+        ul {
+            /* width: 50%; */
+        }
+        body {
+            /* column-count: 2;
+            column-gap: 3em; */
+            overflow: visible;
+        }
+        * {
+            overflow: visible !important;
+        }
+    }
+</style>

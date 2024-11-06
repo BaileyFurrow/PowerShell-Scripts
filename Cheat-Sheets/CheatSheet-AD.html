@@ -1,0 +1,200 @@
+<h1 id="powershell-cheat-sheet-active-directory">
+    PowerShell Cheat Sheet - Active Directory
+</h1>
+<ul>
+    <h2 id="user-management"><strong>User Management</strong></h2>
+    <li>
+        <p>
+            <strong>Get User Information</strong> – Retrieve user details for
+            viewing.
+        </p>
+        <pre><code class="language-powershell">Get-ADUser -Identity &lt;username&gt; -Properties * | Select-Object Name, EmailAddress, Title, Department
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Unlock a User Account</strong> – Unlocks an account after
+            too many failed login attempts.
+        </p>
+        <pre><code class="language-powershell">Unlock-ADAccount -Identity &lt;username&gt;
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <h2 id="group-management"><strong>Group Management</strong></h2>
+    <li>
+        <p>
+            <strong>Get Group Information</strong> – View details for a specific
+            group.
+        </p>
+        <pre><code class="language-powershell">Get-ADGroup -Identity &quot;GroupName&quot; -Properties * | Select-Object Name, Description
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Add a User to a Specific Group</strong> – Adds a user to an
+            authorized group.
+        </p>
+        <pre><code class="language-powershell">Add-ADGroupMember -Identity &quot;GroupName&quot; -Members &lt;username&gt;
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>List All Members of a Group</strong> – View group
+            membership.
+        </p>
+        <pre><code class="language-powershell">Get-ADGroupMember -Identity &quot;GroupName&quot;
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Check if User is a Member of a Group</strong> – Verifies
+            group membership.
+        </p>
+        <pre><code class="language-powershell">Get-ADUser -Identity &lt;username&gt; -Properties MemberOf | Select-Object -ExpandProperty MemberOf
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <h2 id="computer-management"><strong>Computer Management</strong></h2>
+    <li>
+        <p>
+            <strong>Get Computer Information</strong> – Retrieve details of a
+            computer account.
+        </p>
+        <pre><code class="language-powershell">Get-ADComputer -Identity &quot;ComputerName&quot; -Properties * | Select-Object Name, OperatingSystem, LastLogonDate
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Delete a Computer Account</strong> – Removes a computer
+            account from AD.
+        </p>
+        <pre><code class="language-powershell">Remove-ADComputer -Identity &quot;ComputerName&quot; -Confirm:$false
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <h2 id="laps-bitlocker-management">
+        <strong>LAPS &amp; BitLocker Management</strong>
+    </h2>
+    <li>
+        <p>
+            <strong>Retrieve LAPS Password</strong> – Reads the Local
+            Administrator Password Solution (LAPS) password.
+        </p>
+        <pre><code class="language-powershell">Get-ADComputer -Identity &quot;ComputerName&quot; -Properties ms-Mcs-AdmPwd | Select-Object Name, @{Name=&quot;LAPSPassword&quot;;Expression={$_.“ms-Mcs-AdmPwd”}}
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Retrieve BitLocker Recovery Key</strong> – Gets the
+            BitLocker recovery key for a specific computer.
+        </p>
+        <pre><code class="language-powershell">Get-ADObject -Filter 'objectclass -eq &quot;msFVE-RecoveryInformation&quot;' -SearchBase &quot;CN=ComputerName,OU=Computers,DC=domain,DC=com&quot; -Properties msFVE-RecoveryPassword | Select-Object -ExpandProperty msFVE-RecoveryPassword
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <h2 id="searching-filtering"><strong>Searching &amp; Filtering</strong></h2>
+    <li>
+        <p>
+            <strong>Search Users by Specific Criteria</strong> – Locate users
+            based on attributes.
+        </p>
+        <pre><code class="language-powershell">Get-ADUser -Filter &quot;Title -eq 'Manager'&quot; -Properties DisplayName, Title, Department
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Find Locked Out Users</strong> – Identifies users with
+            locked accounts.
+        </p>
+        <pre><code class="language-powershell">Search-ADAccount -LockedOut | Select-Object Name, LockedOut
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Find Disabled Accounts</strong> – Lists accounts that are
+            disabled.
+        </p>
+        <pre><code class="language-powershell">Search-ADAccount -AccountDisabled | Select-Object Name, Enabled
+</code></pre>
+    </li>
+</ul>
+<ul>
+    <h2 id="audit-export-information">
+        <strong>Audit &amp; Export Information</strong>
+    </h2>
+    <li>
+        <p>
+            <strong>Export User Details to CSV</strong> – Saves user information
+            for reporting.
+        </p>
+        <pre><code class="language-powershell">Get-ADUser -Filter * -Properties Name, EmailAddress, Title | Select-Object Name, EmailAddress, Title | Export-Csv -Path &quot;C:\ADUsers.csv&quot; -NoTypeInformation
+</code></pre>
+    </li>
+    <li>
+        <p>
+            <strong>Export Group Membership to CSV</strong> – Saves group
+            membership list for reporting.
+        </p>
+        <pre><code class="language-powershell">Get-ADGroupMember -Identity &quot;GroupName&quot; | Select-Object Name, SamAccountName | Export-Csv -Path &quot;C:\GroupMembers.csv&quot; -NoTypeInformation
+</code></pre>
+    </li>
+</ul>
+
+<script src="../../prism.js/prism.js"></script>
+<link href="../../prism.js/prism.css" rel="stylesheet" />
+
+<script>
+    document.querySelectorAll("code").forEach((codeElement) => {
+        // Replace each pipe character with a span-wrapped version
+        codeElement.innerHTML = codeElement.innerHTML.replace(/\|/g, '|<br />');
+        codeElement.innerHTML = codeElement.innerHTML.replace(/ -/g, ' <wbr />-');
+        codeElement.innerHTML = codeElement.innerHTML.replace(/ @/g, ' <wbr />@');
+    });
+</script>
+
+<style>
+    body {
+        columns: 2;
+        font-size: 14px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h1 {
+        column-span: all;
+        text-align: center;
+        border: 1px solid black;
+        background-color: rgb(1, 36, 86);
+        padding: 1em;
+        color: rgb(224, 224, 224);
+    }
+    p {
+        margin: 0;
+    }
+    
+    li {
+        list-style:none;
+        break-inside: avoid;
+        /* display: inline-block; */
+    }
+    ul {
+        display: block;
+        break-after: page;
+        padding: 0;
+    }
+    pre, code {
+        display: inline-block;
+        font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
+        font-weight: 200;
+    }
+    pre {
+        padding: 5px !important;
+    }
+    @media print {
+        .toolbar {
+            display: none;
+        }
+    }
+</style>
