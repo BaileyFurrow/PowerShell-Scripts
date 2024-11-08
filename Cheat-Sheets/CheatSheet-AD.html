@@ -144,8 +144,8 @@
     </li>
 </ul>
 
-<script src="../../prism.js/prism.js"></script>
-<link href="../../prism.js/prism.css" rel="stylesheet" />
+<script src="prism.js"></script>
+<link href="prism.css" rel="stylesheet" />
 
 <script>
     document.querySelectorAll("code").forEach((codeElement) => {
@@ -158,8 +158,8 @@
 
 <style>
     body {
-        columns: 2;
-        font-size: 14px;
+        /* columns: 2; */
+        font-size: 12px;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     h1 {
@@ -181,7 +181,7 @@
     }
     ul {
         display: block;
-        break-after: page;
+        /* break-after: page; */
         padding: 0;
     }
     pre, code {
@@ -195,6 +195,17 @@
     @media print {
         .toolbar {
             display: none;
+        }
+        ul {
+            /* width: 50%; */
+        }
+        body {
+            /* column-count: 2;
+            column-gap: 3em; */
+            overflow: visible;
+        }
+        * {
+            overflow: visible !important;
         }
     }
 </style>
