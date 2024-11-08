@@ -21,24 +21,60 @@ function Get-Application {
         PowerShell in the name.
     #>
     
-    
     param (
-        # Name of remote computer to access. Uses local PC by default.
-        [Parameter()]
-        [string] $ComputerName,
-
         # Name of application to find. If none are selected, lists all applications.
-        [Parameter()]
+        [Parameter(Position=0)]
         [SupportsWildcards()]
-        [string[]] $Name,
+        [Alias("App","Program","ProgramName","AppName","Application")]
+        [string[]] $ApplicationName=".*",
+
+        # Name of remote computer to access. Uses local PC by default.
+        [Parameter(Position=1)]
+        [Alias("PC","PCName","ResourceName")]
+        [string] $ComputerName=".",
 
         # Only return 64-bit applications.
-        [Parameter(ParameterSetName="64-bit")]
+        # [Parameter(ParameterSetName="64-bit")]
         [switch] $x64,
 
         # Only return 32-bit applications.
-        [Parameter(ParameterSetName="32-bit")]
+        # [Parameter(ParameterSetName="32-bit")]
         [switch] $x86
-
     )
+    begin {
+        # Skip the computer if it cannot be connected to.
+        if ($ComputerName -ne "." -and -not (Test-Connection $ComputerName -Quiet)) {
+            Write-Error -Message "The target computer is not online or does not exist."
+            Write-Debug $ComputerName
+            return
+        }
+    }
+    process {
+        $ICMScriptBlock = {
+            $AppList = @()
+            $SelectParams = @{"Property"=@("DisplayName","DisplayVersion","Publisher",@{
+                Name="InstallDate"
+                Expression={[datetime]::ParseExact([string]$_.InstallDate, 'yyyyMMdd', $null)}
+            },"UninstallString")}
+            # 64-bit
+            if (-not $using:x86) {
+                $AppList += (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*) | 
+                    Where-Object DisplayName -Match $using:ApplicationName | 
+                    Select-Object @SelectParams
+            }
+            # 32-bit
+            if (-not $using:x64) {
+                $SelectParams["Property"] += @{
+                    Name="is32bit"
+                    Expr={$True}
+                }
+                $AppList += (Get-ItemProperty HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*) |
+                    Where-Object DisplayName -Match $using:ApplicationName |
+                    Select-Object @SelectParams
+            }
+            return $AppList
+        }
+        return Invoke-Command -ComputerName $ComputerName -ScriptBlock $ICMScriptBlock |
+            Select-Object * -ExcludeProperty RunspaceId | Sort-Object DisplayName
+    }
 }

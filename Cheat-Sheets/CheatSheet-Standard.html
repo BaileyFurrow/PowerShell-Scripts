@@ -1,134 +1,182 @@
 <h1 id="powershell-cheat-sheet-standard">PowerShell Cheat Sheet - Standard</h1>
 <h2 id="basic-commands"><strong>Basic Commands</strong></h2>
 <ul>
-<li><p><strong>Get-Help</strong> – Displays information about commands.</p>
-<pre><code class="language-powershell">Get-Help &lt;Command&gt; -Full
+    <li>
+        <p><strong>Get-Help</strong> – Displays information about commands.</p>
+        <pre><code class="language-powershell">Get-Help &lt;Command&gt; -Full
 </code></pre>
-</li>
-<li><p><strong>Get-Command</strong> – Lists available cmdlets, functions, workflows, aliases.</p>
-<pre><code class="language-powershell">Get-Command -Name &lt;Pattern&gt; -Module &lt;ModuleName&gt;
+    </li>
+    <li>
+        <p>
+            <strong>Get-Command</strong> – Lists available cmdlets, functions,
+            workflows, aliases.
+        </p>
+        <pre><code class="language-powershell">Get-Command -Name &lt;Pattern&gt; -Module &lt;ModuleName&gt;
 </code></pre>
-</li>
-<li><p><strong>Get-Alias</strong> – Lists aliases for cmdlets.</p>
-<pre><code class="language-powershell">Get-Alias
+    </li>
+    <li>
+        <p><strong>Get-Alias</strong> – Lists aliases for cmdlets.</p>
+        <pre><code class="language-powershell">Get-Alias
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="core-cmdlets"><strong>Core Cmdlets</strong></h2>
 <ul>
-<li><p><strong>Get-Process</strong> – Displays running processes.</p>
-<pre><code class="language-powershell">Get-Process | Where-Object {$_.CPU -gt 100}
+    <li>
+        <p><strong>Get-Process</strong> – Displays running processes.</p>
+        <pre><code class="language-powershell">Get-Process | Where-Object {$_.CPU -gt 100}
 </code></pre>
-</li>
-<li><p><strong>Get-Service</strong> – Lists system services.</p>
-<pre><code class="language-powershell">Get-Service | Where-Object {$_.Status -eq 'Stopped'}
+    </li>
+    <li>
+        <p><strong>Get-Service</strong> – Lists system services.</p>
+        <pre><code class="language-powershell">Get-Service | Where-Object {$_.Status -eq 'Stopped'}
 </code></pre>
-</li>
-<li><p><strong>Get-EventLog</strong> – Retrieves event logs.</p>
-<pre><code class="language-powershell">Get-EventLog -LogName Application -Newest 10
+    </li>
+    <li>
+        <p><strong>Get-EventLog</strong> – Retrieves event logs.</p>
+        <pre><code class="language-powershell">Get-EventLog -LogName Application -Newest 10
 </code></pre>
-</li>
-<li><p><strong>Test-Connection</strong> – Network connectivity check (similar to ping).</p>
-<pre><code class="language-powershell">Test-Connection -ComputerName 'hostname' -Count 2
+    </li>
+    <li>
+        <p>
+            <strong>Test-Connection</strong> – Network connectivity check
+            (similar to ping).
+        </p>
+        <pre><code class="language-powershell">Test-Connection -ComputerName 'hostname' -Count 2
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="data-manipulation"><strong>Data Manipulation</strong></h2>
 <ul>
-<li><p><strong>Where-Object</strong> – Filters objects based on condition.</p>
-<pre><code class="language-powershell">Get-Process | Where-Object {$_.CPU -gt 100}
+    <li>
+        <p>
+            <strong>Where-Object</strong> – Filters objects based on condition.
+        </p>
+        <pre><code class="language-powershell">Get-Process | Where-Object {$_.CPU -gt 100}
 </code></pre>
-</li>
-<li><p><strong>Select-Object</strong> – Selects specific properties.</p>
-<pre><code class="language-powershell">Get-Service | Select-Object -Property Name, Status
+    </li>
+    <li>
+        <p><strong>Select-Object</strong> – Selects specific properties.</p>
+        <pre><code class="language-powershell">Get-Service | Select-Object -Property Name, Status
 </code></pre>
-</li>
-<li><p><strong>Sort-Object</strong> – Sorts objects by property.</p>
-<pre><code class="language-powershell">Get-Process | Sort-Object CPU -Descending
+    </li>
+    <li>
+        <p><strong>Sort-Object</strong> – Sorts objects by property.</p>
+        <pre><code class="language-powershell">Get-Process | Sort-Object CPU -Descending
 </code></pre>
-</li>
-<li><p><strong>Group-Object</strong> – Groups objects by property.</p>
-<pre><code class="language-powershell">Get-EventLog -LogName System | Group-Object -Property Source
+    </li>
+    <li>
+        <p><strong>Group-Object</strong> – Groups objects by property.</p>
+        <pre><code class="language-powershell">Get-EventLog -LogName System | Group-Object -Property Source
 </code></pre>
-</li>
-<li><p><strong>Measure-Object</strong> – Calculates statistical data.</p>
-<pre><code class="language-powershell">Get-Process | Measure-Object -Property CPU -Sum
+    </li>
+    <li>
+        <p><strong>Measure-Object</strong> – Calculates statistical data.</p>
+        <pre><code class="language-powershell">Get-Process | Measure-Object -Property CPU -Sum
 </code></pre>
-</li>
+    </li>
 </ul>
-<h2 id="file-directory-operations"><strong>File &amp; Directory Operations</strong></h2>
+<h2 id="file-directory-operations">
+    <strong>File &amp; Directory Operations</strong>
+</h2>
 <ul>
-<li><p><strong>Get-ChildItem (ls, dir, gci)</strong> – Lists files/directories.</p>
-<pre><code class="language-powershell">Get-ChildItem -Path C:\ -Recurse -Filter &quot;*.log&quot;
+    <li>
+        <p>
+            <strong>Get-ChildItem (ls, dir, gci)</strong> – Lists
+            files/directories.
+        </p>
+        <pre><code class="language-powershell">Get-ChildItem -Path C:\ -Recurse -Filter &quot;*.log&quot;
 </code></pre>
-</li>
-<li><p><strong>New-Item</strong> – Creates files or directories.</p>
-<pre><code class="language-powershell">New-Item -Path 'C:\Logs' -ItemType Directory
+    </li>
+    <li>
+        <p><strong>New-Item</strong> – Creates files or directories.</p>
+        <pre><code class="language-powershell">New-Item -Path 'C:\Logs' -ItemType Directory
 </code></pre>
-</li>
-<li><p><strong>Remove-Item</strong> – Deletes files or directories.</p>
-<pre><code class="language-powershell">Remove-Item -Path 'C:\Logs\old.log' -Force
+    </li>
+    <li>
+        <p><strong>Remove-Item</strong> – Deletes files or directories.</p>
+        <pre><code class="language-powershell">Remove-Item -Path 'C:\Logs\old.log' -Force
 </code></pre>
-</li>
-<li><p><strong>Copy-Item</strong> – Copies files or directories.</p>
-<pre><code class="language-powershell">Copy-Item -Path 'C:\source.txt' -Destination 'C:\backup\'
+    </li>
+    <li>
+        <p><strong>Copy-Item</strong> – Copies files or directories.</p>
+        <pre><code class="language-powershell">Copy-Item -Path 'C:\source.txt' -Destination 'C:\backup\'
 </code></pre>
-</li>
-<li><p><strong>Move-Item</strong> – Moves files or directories.</p>
-<pre><code class="language-powershell">Move-Item -Path 'C:\temp\file.txt' -Destination 'C:\archive\'
+    </li>
+    <li>
+        <p><strong>Move-Item</strong> – Moves files or directories.</p>
+        <pre><code class="language-powershell">Move-Item -Path 'C:\temp\file.txt' -Destination 'C:\archive\'
 </code></pre>
-</li>
+    </li>
 </ul>
-<h2 id="text-string-manipulation"><strong>Text &amp; String Manipulation</strong></h2>
+<h2 id="text-string-manipulation">
+    <strong>Text &amp; String Manipulation</strong>
+</h2>
 <ul>
-<li><p><strong>Select-String</strong> – Searches for text patterns.</p>
-<pre><code class="language-powershell">Get-Content 'C:\Logs\log.txt' | Select-String -Pattern 'Error'
+    <li>
+        <p><strong>Select-String</strong> – Searches for text patterns.</p>
+        <pre><code class="language-powershell">Get-Content 'C:\Logs\log.txt' | Select-String -Pattern 'Error'
 </code></pre>
-</li>
-<li><p><strong>-replace</strong> – Replaces text within strings.</p>
-<pre><code class="language-powershell">&quot;Hello World&quot; -replace &quot;World&quot;, &quot;PowerShell&quot;
+    </li>
+    <li>
+        <p><strong>-replace</strong> – Replaces text within strings.</p>
+        <pre><code class="language-powershell">&quot;Hello World&quot; -replace &quot;World&quot;, &quot;PowerShell&quot;
 </code></pre>
-</li>
-<li><p><strong>-match</strong> / <strong>-notmatch</strong> – Regex pattern matching.</p>
-<pre><code class="language-powershell">$text -match '\d{3}-\d{2}-\d{4}'
+    </li>
+    <li>
+        <p>
+            <strong>-match</strong> / <strong>-notmatch</strong> – Regex pattern
+            matching.
+        </p>
+        <pre><code class="language-powershell">$text -match '\d{3}-\d{2}-\d{4}'
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="variables-objects"><strong>Variables &amp; Objects</strong></h2>
 <ul>
-<li><p><strong>New-Variable</strong> – Creates variables.</p>
-<pre><code class="language-powershell">New-Variable -Name 'MyVar' -Value 'Hello'
+    <li>
+        <p><strong>New-Variable</strong> – Creates variables.</p>
+        <pre><code class="language-powershell">New-Variable -Name 'MyVar' -Value 'Hello'
 </code></pre>
-</li>
-<li><p><strong>Remove-Variable</strong> – Deletes variables.</p>
-<pre><code class="language-powershell">Remove-Variable -Name 'MyVar'
+    </li>
+    <li>
+        <p><strong>Remove-Variable</strong> – Deletes variables.</p>
+        <pre><code class="language-powershell">Remove-Variable -Name 'MyVar'
 </code></pre>
-</li>
-<li><p><strong>Select-Object -ExpandProperty</strong> – Accesses properties.</p>
-<pre><code class="language-powershell">$object | Select-Object -ExpandProperty Name
+    </li>
+    <li>
+        <p>
+            <strong>Select-Object -ExpandProperty</strong> – Accesses
+            properties.
+        </p>
+        <pre><code class="language-powershell">$object | Select-Object -ExpandProperty Name
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="scripting-automation"><strong>Scripting &amp; Automation</strong></h2>
 <ul>
-<li><p><strong>ForEach-Object</strong> – Iterates through items.</p>
-<pre><code class="language-powershell">Get-Process | ForEach-Object { $_.Name }
+    <li>
+        <p><strong>ForEach-Object</strong> – Iterates through items.</p>
+        <pre><code class="language-powershell">Get-Process | ForEach-Object { $_.Name }
 </code></pre>
-</li>
-<li><p><strong>If/Else Statements</strong> – Conditional execution.</p>
-<pre><code class="language-powershell">if ($var -eq 10) { &quot;Equal&quot; } else { &quot;Not equal&quot; }
+    </li>
+    <li>
+        <p><strong>If/Else Statements</strong> – Conditional execution.</p>
+        <pre><code class="language-powershell">if ($var -eq 10) { &quot;Equal&quot; } else { &quot;Not equal&quot; }
 </code></pre>
-</li>
-<li><p><strong>Switch Statement</strong> – Simplifies conditional logic.</p>
-<pre><code class="language-powershell">switch ($value) {
+    </li>
+    <li>
+        <p><strong>Switch Statement</strong> – Simplifies conditional logic.</p>
+        <pre><code class="language-powershell">switch ($value) {
   1 { &quot;One&quot; }
   2 { &quot;Two&quot; }
   Default { &quot;Other&quot; }
 }
 </code></pre>
-</li>
-<li><p><strong>Try/Catch/Finally</strong> – Error handling.</p>
-<pre><code class="language-powershell">try {
+    </li>
+    <li>
+        <p><strong>Try/Catch/Finally</strong> – Error handling.</p>
+        <pre><code class="language-powershell">try {
   Get-Content 'file.txt'
 } catch {
   Write-Output &quot;Error!&quot;
@@ -136,98 +184,137 @@
   Write-Output &quot;Done&quot;
 }
 </code></pre>
-</li>
-<li><p><strong>Function Creation</strong> – Defines reusable code blocks.</p>
-<pre><code class="language-powershell">function Get-CustomProcess {
+    </li>
+    <li>
+        <p>
+            <strong>Function Creation</strong> – Defines reusable code blocks.
+        </p>
+        <pre><code class="language-powershell">function Get-CustomProcess {
   param($Name)
   Get-Process -Name $Name
 }
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="advanced-functions"><strong>Advanced Functions</strong></h2>
 <ul>
-<li><p><strong>CmdletBinding</strong> – Advanced function with pipeline support.</p>
-<pre><code class="language-powershell">function Get-SampleProcess {
+    <li>
+        <p>
+            <strong>CmdletBinding</strong> – Advanced function with pipeline
+            support.
+        </p>
+        <pre><code class="language-powershell">function Get-SampleProcess {
     [CmdletBinding()]
     param([Parameter(Mandatory=$true, ValueFromPipeline=$true)] $Name)
     process { Get-Process -Name $Name }
 }
 </code></pre>
-</li>
-<li><p><strong>Dynamic Parameters</strong> – Define parameters at runtime.</p>
-<pre><code class="language-powershell">function Test-DynamicParam {
+    </li>
+    <li>
+        <p>
+            <strong>Dynamic Parameters</strong> – Define parameters at runtime.
+        </p>
+        <pre><code class="language-powershell">function Test-DynamicParam {
     param()
     dynamicparam {
         # Code to create dynamic parameter
     }
 }
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="modules-importing"><strong>Modules &amp; Importing</strong></h2>
 <ul>
-<li><p><strong>Import-Module</strong> – Loads a module into the session.</p>
-<pre><code class="language-powershell">Import-Module ActiveDirectory
+    <li>
+        <p><strong>Import-Module</strong> – Loads a module into the session.</p>
+        <pre><code class="language-powershell">Import-Module ActiveDirectory
 </code></pre>
-</li>
-<li><p><strong>Get-Module</strong> – Lists loaded modules.</p>
-<pre><code class="language-powershell">Get-Module
+    </li>
+    <li>
+        <p><strong>Get-Module</strong> – Lists loaded modules.</p>
+        <pre><code class="language-powershell">Get-Module
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="remote-management"><strong>Remote Management</strong></h2>
 <ul>
-<li><p><strong>Enter-PSSession</strong> – Starts an interactive session on a remote computer.</p>
-<pre><code class="language-powershell">Enter-PSSession -ComputerName 'RemotePC'
+    <li>
+        <p>
+            <strong>Enter-PSSession</strong> – Starts an interactive session on
+            a remote computer.
+        </p>
+        <pre><code class="language-powershell">Enter-PSSession -ComputerName 'RemotePC'
 </code></pre>
-</li>
-<li><p><strong>Invoke-Command</strong> – Runs commands on a remote computer.</p>
-<pre><code class="language-powershell">Invoke-Command -ComputerName 'RemotePC' -ScriptBlock { Get-Service }
+    </li>
+    <li>
+        <p>
+            <strong>Invoke-Command</strong> – Runs commands on a remote
+            computer.
+        </p>
+        <pre><code class="language-powershell">Invoke-Command -ComputerName 'RemotePC' -ScriptBlock { Get-Service }
 </code></pre>
-</li>
-<li><p><strong>New-PSSession</strong> – Creates a persistent remote session.</p>
-<pre><code class="language-powershell">$session = New-PSSession -ComputerName 'RemotePC'
+    </li>
+    <li>
+        <p>
+            <strong>New-PSSession</strong> – Creates a persistent remote
+            session.
+        </p>
+        <pre><code class="language-powershell">$session = New-PSSession -ComputerName 'RemotePC'
 </code></pre>
-</li>
-<li><p><strong>Import-PSSession</strong> – Imports commands from a remote session.</p>
-<pre><code class="language-powershell">Import-PSSession -Session $session
+    </li>
+    <li>
+        <p>
+            <strong>Import-PSSession</strong> – Imports commands from a remote
+            session.
+        </p>
+        <pre><code class="language-powershell">Import-PSSession -Session $session
 </code></pre>
-</li>
+    </li>
 </ul>
 <h2 id="error-handling"><strong>Error Handling</strong></h2>
 <ul>
-<li><p><strong>$ErrorActionPreference</strong> – Controls error action.</p>
-<pre><code class="language-powershell">$ErrorActionPreference = &quot;Stop&quot;
+    <li>
+        <p><strong>$ErrorActionPreference</strong> – Controls error action.</p>
+        <pre><code class="language-powershell">$ErrorActionPreference = &quot;Stop&quot;
 </code></pre>
-</li>
-<li><p><strong>Try/Catch</strong> – Structured error handling.</p>
-<pre><code class="language-powershell">try {
+    </li>
+    <li>
+        <p><strong>Try/Catch</strong> – Structured error handling.</p>
+        <pre><code class="language-powershell">try {
     # Command that may fail
 } catch {
     Write-Output &quot;Caught error&quot;
 }
 </code></pre>
-</li>
+    </li>
 </ul>
 
 <script src="../../prism.js/prism.js"></script>
-<link href="../../prism.js/prism.css" rel="stylesheet">
+<link href="../../prism.js/prism.css" rel="stylesheet" />
 
 <script>
     document.querySelectorAll("code").forEach((codeElement) => {
         // Replace each pipe character with a span-wrapped version
-        codeElement.innerHTML = codeElement.innerHTML.replace(/\|/g, '|<wbr />');
-        codeElement.innerHTML = codeElement.innerHTML.replace(/ -/g, ' <wbr />-');
-        codeElement.innerHTML = codeElement.innerHTML.replace(/ @/g, ' <wbr />@');
+        codeElement.innerHTML = codeElement.innerHTML.replace(
+            /\|/g,
+            "|<wbr />"
+        );
+        codeElement.innerHTML = codeElement.innerHTML.replace(
+            / -/g,
+            " <wbr />-"
+        );
+        codeElement.innerHTML = codeElement.innerHTML.replace(
+            / @/g,
+            " <wbr />@"
+        );
     });
 </script>
 
 <style>
     body {
-        /* columns: 2; */
+        column-width: 600px;
         font-size: 12px;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     h1 {
         column-span: all;
@@ -240,9 +327,9 @@
     p {
         margin: 0;
     }
-    
+
     li {
-        list-style:none;
+        list-style: none;
         break-inside: avoid;
         /* display: inline-block; */
     }
@@ -251,7 +338,8 @@
         /* break-after: page; */
         padding: 0;
     }
-    pre, code {
+    pre,
+    code {
         display: inline-block;
         font-family: "Fira Code", "Cascadia Code", "Consolas", monospace !important;
         font-weight: 200;
@@ -273,6 +361,11 @@
         }
         * {
             overflow: visible !important;
+        }
+    }
+    @media screen {
+        body {
+            column-width: 600px;
         }
     }
 </style>
