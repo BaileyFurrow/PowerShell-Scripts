@@ -1,0 +1,107 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"pwsh","items":[{"aliases":[],"languageName":"pwsh","name":"pwsh"}]}}
+
+#!markdown
+
+## Pester Basics
+
+Must be installed to use. Install using:
+
+#!pwsh
+
+Install-Module -Name Pester
+
+#!markdown
+
+### A Pester File
+
+Pester test scripts are just PowerShell files ending in `.Tests.ps1`.
+
+Each Pester file contains one or more `describe` blocks that each contain zero or more `context` blocks that contain one or more `it` blocks that contain assertions.
+
+#!value
+
+describe
+|
+|-context
+  |
+  |-it
+    |
+    |-assertions
+
+#!markdown
+
+### `describe` Block
+
+Groups like tests together.
+
+Syntax is a name in 'single quotes' followed by a script block:
+
+#!pwsh
+
+Describe 'IIS' {
+}
+
+#!markdown
+
+### `context` Block
+
+The `context` block is optional.
+
+It groups similar `it` blocks together.
+
+#!pwsh
+
+Describe 'IIS' {
+    Context 'Windows features' {
+    }
+}
+
+#!markdown
+
+### `it` Blocks
+
+Smaller component that labels the actual test to run.
+
+#!pwsh
+
+Describe 'IIS' {
+    Context 'Windows features' {
+        It 'installs the Web-Server Windows feature' {
+        }
+    }
+}
+
+#!markdown
+
+### Assertions
+
+`it` blocks must include one or more assertions.
+
+*Assertions* are the actual test to be ran.
+
+Most common assertion is `Should`, with different operators, such as `-be`, `-bein`, `-belessthan`, etc.
+
+[Full list can be found here.](https://github.com/pester/Pester/wiki/)
+
+#!pwsh
+
+# Note - this will fail bc there is no `Get-WIndowsFeature` command.
+Describe 'IIS' {
+    Context 'Windows features' {
+        It 'installs the Web-Server Windows feature' {
+            $parameters = @{
+                ComputerName = 'WEBSRV1'
+                Name = 'Web-Server'
+            }
+            (Get-WindowsFeature @paarmeters).Installed | Should -Be $true
+        }
+    }
+}
+
+#!markdown
+
+## Learn More
+
+Learn more about Pester from [The Pester Book](https://leanpub.com/pesterbook/) or from [4sysops articles on Pester](https://4sysops.com/archives/powershell-pester-testing-getting-started/).
