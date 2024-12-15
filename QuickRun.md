@@ -25,8 +25,8 @@ Rename PC/Join Domain - `SystemPropertiesComputerName.exe`
 > [!NOTE]
 > These URI paths are found in the System Settings DLL (C:\\Windows\\ImmersiveControlPanel\\SystemSettings.dll). To enumerate all of them, run this PowerShell code:
 >
-> ```PowerShell
-> $content = [System.IO.File]::ReadAllText('C:\Windows\ImmersiveControlPanel\SystemSettings.dll')
+> ```powershell
+> $content = [System.IO.File]::ReadAllText('C:\Windows\ImmersiveControlPanel\SystemSettings.dll', [System.Text.Encoding]::Unicode)
 > [regex]::Matches($content, 'ms-settings:[a-z-]+') | Select-Object Value
 > ```
 
