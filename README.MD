@@ -30,6 +30,10 @@ Counts the number of lines in a file using the built-in `Measure-Object` cmdlet.
 Pretty-prints JSON using only one command. By default, two piped commands are
 needed to achieve this. This bring it down to one.
 
+### [Format-Size.psm1](/Format-Size.psm1)
+
+Formats a given byte value to the specified unit (GB, KB, etc).
+
 ### [Get-Application.ps1](/Get-Application.ps1)
 
 Using the registry, finds all applications installed for all users. Accomplishes
