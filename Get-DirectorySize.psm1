@@ -27,7 +27,7 @@ function Get-DirectorySize {
             {Test-Path $_}
             # ErrorMessage = "`n{0} is not a valid path. Validate that the path exists and try again."
         )]
-        [System.IO.DirectoryInfo[]]$Path = $PWD.Path,
+        [System.IO.DirectoryInfo[]]$Path = (Get-ChildItem $PWD.Path -Directory),
 
         [ValidateSet('B','KB','MB','GB','TB','Auto')]
         [PSDefaultValue(Help='Auto')]
