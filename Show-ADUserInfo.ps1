@@ -23,7 +23,7 @@ function Get-ADUserInfo {
             $User | Add-Member -Force -MemberType AliasProperty -Name Username -Value SamAccountName
             $User | Add-Member -Force -MemberType AliasProperty -Name CostCenter -Value ExtensionAttribute15
         }
-        
+        Write-Host $user
         return $User
     }
     catch {
@@ -292,13 +292,14 @@ $accountActions['CallUser'].Add_Click({
 $setFieldValues = {
     $form.ActiveControl = $null
     $UserInfo = Get-ADUserInfo -SamAccountName $textUser.Text
+    Write-Host ([bool]$UserInfo)
     if ($UserInfo) {
-        foreach ($field in $allFields) {
+        foreach ($field in $fields) {
             $textBoxes[$field].Text = $UserInfo.$field
         }
     }
     else {
-        foreach ($field in $allFields) {
+        foreach ($field in $fields) {
             $textBoxes[$field].Text = ""
         }
     }
