@@ -6,44 +6,18 @@ function Get-ADUserInfo {
     )
     
     try {
-        if ($Debug -eq $true) {
-            # Simulated test data
-            $PasswordLastSetDate = [datetime]"2024-03-01"
-            $DaysSincePassword = (New-TimeSpan -Start $PasswordLastSetDate -End (Get-Date)).Days
-
-            $User = [PSCustomObject]@{
-                Name              = "John Doe"
-                SamAccountName    = "jdoe"
-                Office            = "New York"
-                Email             = "jdoe@example.com"
-                Info              = "Test user for GUI"
-                CustomAttribute15 = "Test Attribute"
-                Manager           = "Jane Smith"
-                Title             = "IT Specialist"
-                Department        = "IT"
-                LockedOut         = "False"
-                PasswordExpired   = "False"
-                PasswordLastSet   = $PasswordLastSetDate.ToString("yyyy-MM-dd")
-                MemberOf          = "Domain Users, IT Group"
-            }
-            $User | Add-Member -MemberType NoteProperty -Name DaysSincePassword -Value "$DaysSincePassword"
-            $User | Add-Member -MemberType AliasProperty -Name Username -Value SamAccountName
-            $User | Add-Member -MemberType AliasProperty -Name CostCenter -Value CustomAttribute15
-        }
-        else {
-            # Retrieve real data from AD
-            $User = Get-ADUser -Identity $SamAccountName -Properties Office, EmailAddress, Info, CustomAttribute15, Manager, Title, Department, LockedOut, PasswordExpired, PasswordLastSet, MemberOf
+        # Retrieve real data from AD
+        $User = Get-ADUser -Identity $SamAccountName -Properties Office, Mail, Info, ExtensionAttribute15, Manager, Title, Department, LockedOut, PasswordExpired, PasswordLastSet, MemberOf, IPPhone
             
-            if ($User) {
-                $PasswordLastSetDate = $User.PasswordLastSet
-                $DaysSincePassword = (New-TimeSpan -Start $PasswordLastSetDate -End (Get-Date)).Days
-                $Manager = if ($User.Manager) { (Get-ADUser -Identity $User.Manager).Name } else { "N/A" }
-                $MemberOf = ($User.MemberOf | Get-ADGroup | Select-Object -ExpandProperty Name) -join ", "
+        if ($User) {
+            $PasswordLastSetDate = $User.PasswordLastSet
+            $DaysSincePassword = (New-TimeSpan -Start $PasswordLastSetDate -End (Get-Date)).Days
+            # $Manager = if ($User.Manager) { (Get-ADUser -Identity $User.Manager).Name } else { "N/A" }
+            # $MemberOf = ($User.MemberOf | Get-ADGroup | Select-Object -ExpandProperty Name) -join ", "
                 
-                $User | Add-Member -MemberType NoteProperty -Name DaysSincePassword -Value "$DaysSincePassword"
-                $User | Add-Member -MemberType AliasProperty -Name Username -Value SamAccountName
-                $User | Add-Member -MemberType AliasProperty -Name CostCenter -Value CustomAttribute15
-            }
+            $User | Add-Member -Force -MemberType NoteProperty -Name DaysSincePassword -Value "$DaysSincePassword"
+            $User | Add-Member -Force -MemberType AliasProperty -Name Username -Value SamAccountName
+            $User | Add-Member -Force -MemberType AliasProperty -Name CostCenter -Value ExtensionAttribute15
         }
         
         return $User
@@ -53,6 +27,8 @@ function Get-ADUserInfo {
     }
     return $null
 }
+
+#region Form creation and layout
 
 # Create the Form
 $form = New-Object System.Windows.Forms.Form
@@ -78,7 +54,7 @@ $tableLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([Syst
 # Define AutoComplete source
 $autoComplete = New-Object System.Windows.Forms.AutoCompleteStringCollection
 $allADUsers = Get-ADUser -Filter * -Properties Name, SamAccountName
-$autoComplete.AddRange($allADUsers.SamAccountName)
+$autoComplete.AddRange($allADUsers.SamAccountName -split " ")
 
 # Username Input Row
 $tableLayout.RowCount++
@@ -101,7 +77,8 @@ $tableLayout.Controls.Add((New-Object System.Windows.Forms.Label -Property @{Tex
 $tableLayout.SetColumnSpan((New-Object System.Windows.Forms.Label -Property @{Text = "" }), 6)
 
 # Labels, Read-Only Text Fields, and Copy Buttons for Results
-$fields = @("Name", "Username", "Office", "Email", "Info", "CostCenter", "Manager", "Title", "Department", "MemberOf")
+$fields = @("Name", "Username", "Office", "Mail", "IPPhone", "Info", "CostCenter", "Manager", "Title", "Department", "MemberOf")
+$allFields = $fields + @("LockedOut", "PasswordExpired", "PasswordLastSet", "DaysSincePassword")
 $textBoxes = @{}
 
 foreach ($field in $fields) {
@@ -113,12 +90,12 @@ foreach ($field in $fields) {
     $tableLayout.Controls.Add($textBox, 1, $tableLayout.RowCount - 1)
     $textBoxes[$field] = $textBox
     
-    $copyButton = New-Object System.Windows.Forms.Button -Property @{Text = "Copy"}
+    $copyButton = New-Object System.Windows.Forms.Button -Property @{Text = "Copy" }
     $copyButton.Tag = $textBox
     $copyButton.Add_Click({
-        param($sender, $eventArgs)
-        [System.Windows.Forms.Clipboard]::SetText($sender.Tag.Text)
-    })
+            param($sender, $eventArgs)
+            [System.Windows.Forms.Clipboard]::SetText($sender.Tag.Text)
+        })
     $tableLayout.Controls.Add($copyButton, 5, $tableLayout.RowCount - 1)
 }
 
@@ -150,16 +127,102 @@ $tableLayout.SetColumnSpan($textDaysSincePassword, 2)
 $tableLayout.Controls.Add($textDaysSincePassword, 4, $tableLayout.RowCount - 1)
 $textBoxes["DaysSincePassword"] = $textDaysSincePassword
 
+# Take action on accounts
+$tableLayout.RowCount++
+$accountActions = [ordered]@{
+    Unlock        = New-Object System.Windows.Forms.Button -Property @{Text = "Unlock Account" }
+    ResetPassword = New-Object System.Windows.Forms.Button -Property @{Text = "Reset Password" }
+    EmailUser     = New-Object System.Windows.Forms.Button -Property @{Text = "Email User" }
+    CallUser      = New-Object System.Windows.Forms.Button -Property @{Text = "Call User" }
+}
+$buttonFlow = New-Object System.Windows.Forms.FlowLayoutPanel
+$buttonFlow.AutoSize = $true
+$buttonFlow.WrapContents = $false
+$buttonFlow.FlowDirection = [System.Windows.Forms.FlowDirection]::LeftToRight
+foreach ($action in $accountActions.Keys) {
+    $accountActions[$action].AutoSize = $true
+    $buttonFlow.Controls.Add($accountActions[$action])
+}
+$tableLayout.SetColumnSpan($buttonFlow, 6)
+$tableLayout.Controls.Add($buttonFlow, 0, $tableLayout.RowCount - 1)
+
+#endregion
+
+#region Button Events
+
+# Click events for account actions
+$accountActions['Unlock'].Add_Click({
+        try {
+            if (-not ([System.Security.Principal.WindowsPrincipal][System.Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([System.Security.Principal.WindowsBuiltInRole]::Administrator)) {
+                throw [System.AccessViolationException]::new("The current user is not an administrator or does not have access. Please try again as admin.")
+            }
+            $AccountUnlock = Get-ADUser -Identity $textBoxes['Username'].Text | Unlock-ADAccount -PassThru
+            $isAccountLocked = [bool]$AccountUnlock.LockedOut
+            if ($isAccountLocked) {
+                throw "Unhandled exception: Account not unlocked. Please contact Bailey."
+            }
+            else {
+                [System.Windows.Forms.MessageBox]::Show(
+                    "$($AccountUnlock.SamAccountName) successfully unlocked!",
+                    "Account Unlock Successful",
+                    [System.Windows.Forms.MessageBoxButtons]::OK,
+                    [System.Windows.Forms.MessageBoxIcon]::None
+                )
+            }
+        }
+        catch {
+            [System.Windows.Forms.MessageBox]::Show($_.ToString(), "Error", "OK", "Error")
+        }
+    })
+
+$accountActions['ResetPassword'].Add_Click({
+
+    })
+
+$accountActions['EmailUser'].Add_Click({
+        $email = $textBoxes['Mail'].Text
+        try {
+            $email = [mailaddress]$email
+        }
+        catch [System.ArgumentException], [System.Management.Automation.PSInvalidCastException] {
+            # Try using a potential address in the info field
+            $email = $textBoxes['Info'].Text
+            try {
+                $email = [mailaddress]$email
+            }
+            catch [System.ArgumentException], [System.Management.Automation.PSInvalidCastException] {
+                $email = $null
+            }
+        }
+        if ($null -eq $email) {
+            [System.Windows.Forms.MessageBox]::Show("No valid email address found for this user.", "Email Address Not Found", "OK", "Error")
+        }
+        else {
+            Start-Process "mailto:$($email.Address)"
+        }
+    })
+
+$accountActions['CallUser'].Add_Click({
+        $phone = [int]$textBoxes['IPPhone'].Text
+        if ($phone -le 0 -or $phone -gt 9999999) {
+            [System.Windows.Forms.MessageBox]::Show("Internal phone extension is either missing or not valid.", "Error", "OK", "Error")
+        }
+        else {
+            $telURI = "tel:$phone"
+            Start-Process $telURI
+        }
+    })
+
 # Search Button Click Event
 $buttonSearch.Add_Click({
         $UserInfo = Get-ADUserInfo -SamAccountName $textUser.Text
         if ($UserInfo) {
-            foreach ($field in $fields + $fieldsBool1 + $fieldsBool2) {
+            foreach ($field in $allFields) {
                 $textBoxes[$field].Text = $UserInfo.$field
             }
         }
         else {
-            foreach ($field in $fields + $fieldsBool1 + $fieldsBool2) {
+            foreach ($field in $allFields) {
                 $textBoxes[$field].Text = ""
             }
         }
@@ -172,6 +235,8 @@ $buttonSearch.Add_Click({
 #         $_.SuppressKeyPress = $true
 #     }
 # })
+
+#endregion
 
 # Show Form
 $form.ShowDialog()
