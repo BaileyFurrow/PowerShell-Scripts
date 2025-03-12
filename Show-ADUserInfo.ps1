@@ -121,8 +121,10 @@ Add-UserInfoRow Info Copy
 Add-UserInfoRow CostCenter Copy
 Add-UserInfoRow Manager "More..." {
     param($sender, $eventArgs)
+    [System.Windows.Forms.Cursor]::Current = [System.Windows.Forms.Cursors]::WaitCursor
     $managerUsername = (Get-ADUser $textBoxes['Manager'].Text).SamAccountName
     . $PSScriptRoot\Show-ADUserInfo.ps1 $managerUsername
+    [System.Windows.Forms.Cursor]::Current = [System.Windows.Forms.Cursors]::Default
 }
 Add-UserInfoRow Title Copy
 Add-UserInfoRow Department Copy
@@ -204,6 +206,8 @@ $textDaysSincePassword = New-Object System.Windows.Forms.TextBox -Property @{Rea
 $tableLayout.SetColumnSpan($textDaysSincePassword, 2)
 $tableLayout.Controls.Add($textDaysSincePassword, 4, $tableLayout.RowCount - 1)
 $textBoxes["DaysSincePassword"] = $textDaysSincePassword
+$toolPasswordExpiry = New-Object System.Windows.Forms.ToolTip
+$toolPasswordExpiry.SetToolTip($textDaysSincePassword, "Passwords expire after 90 days.")
 
 # Take action on accounts
 $tableLayout.RowCount++
@@ -252,7 +256,49 @@ $accountActions['Unlock'].Add_Click({
     })
 
 $accountActions['ResetPassword'].Add_Click({
+        $sendToForm = [System.Windows.Forms.Form]::new()
+        $sendToForm.Text = "Manager Or User"
+        $sendToForm.Size = [System.Drawing.Size]::new(300, 150)
+        $sendToForm.StartPosition = 'CenterParent'
+        $sendToForm.FormBorderStyle = 'FixedToolWindow'
 
+        $lblPrompt = [System.Windows.Forms.Label]::new()
+        $lblPrompt.Text = "Send temporary password to manager or user?"
+        $lblPrompt.Location = [System.Drawing.Point]::new(10, 25)
+        $lblPrompt.Width = 280
+
+        $btnManager = [System.Windows.Forms.Button]::new()
+        $btnManager.Text = "Manager"
+        $btnManager.Location = [System.Drawing.Point]::new(50, 75)
+        $btnManager.Size = [System.Drawing.Size]::new(75, 25)
+        $btnManager.DialogResult = "OK"
+
+        $btnUser = [System.Windows.Forms.Button]::new()
+        $btnUser.Text = "User"
+        $btnUser.Location = [System.Drawing.Point]::new(150, 75)
+        $btnUser.Size = [System.Drawing.Size]::new(75, 25)
+        $btnUser.DialogResult = "OK"
+
+        $sendToForm.Controls.Add($lblPrompt)
+        $sendToForm.Controls.Add($btnManager)
+        $sendToForm.Controls.Add($btnUser)
+        $userButton = $sendToForm.ShowDialog()
+        $userChoice = ""
+
+        if ($userButton -eq [System.Windows.Forms.DialogResult]::OK) {
+            if ($sendToForm.ActiveControl -eq $btnManager) {
+                $userChoice = "Manager"
+            }
+            elseif ($sendToForm.ActiveControl -eq $btnUser) {
+                $userChoice = "User"
+            }
+            else {
+                return
+            }
+        }
+
+        . $PSScriptRoot\..\Passphrase.ps1
+        Get-ADUser -Identity $textBoxes['Username'].Text | Reset-ADUserPassword -SendTo $userChoice
     })
 
 $accountActions['EmailUser'].Add_Click({
