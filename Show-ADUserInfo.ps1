@@ -1,5 +1,5 @@
 param(
-    [string]$InitialUsername
+    [string]$Username
 )
 
 Add-Type -AssemblyName System.Windows.Forms
@@ -32,6 +32,8 @@ function Get-ADUserInfo {
     return $null
 }
 
+#region Form setup
+
 # Create the Form
 $form = New-Object System.Windows.Forms.Form
 $form.Text = "AD User Information"
@@ -54,6 +56,10 @@ $tableLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([Syst
 $tableLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::AutoSize)))
 $tableLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::AutoSize)))
 $tableLayout.ColumnStyles.Add((New-Object System.Windows.Forms.ColumnStyle([System.Windows.Forms.SizeType]::AutoSize)))
+
+#endregion
+
+#region User Info Rows
 
 # Define AutoComplete source
 $autoComplete = New-Object System.Windows.Forms.AutoCompleteStringCollection
@@ -139,46 +145,6 @@ Add-UserInfoRow MemberOf "More..." {
     . $PSScriptRoot\MoreInfoWindow.ps1 $groupNames "AD Groups - $($textBoxes['Username'].Text)"
 }
 
-# foreach ($field in $fields) {
-#     $tableLayout.RowCount++
-#     $tableLayout.Controls.Add((New-Object System.Windows.Forms.Label -Property @{Text = "$field`:" }), 0, $tableLayout.RowCount - 1)
-    
-#     $textBox = New-Object System.Windows.Forms.TextBox -Property @{ReadOnly = $true; Width = 300 }
-#     $tableLayout.SetColumnSpan($textBox, 4)
-#     $tableLayout.Controls.Add($textBox, 1, $tableLayout.RowCount - 1)
-#     $textBoxes[$field] = $textBox
-    
-#     $copyButton = New-Object System.Windows.Forms.Button -Property @{Text = "Copy" }
-#     $copyButton.Tag = $textBox
-#     $copyButton.Add_Click({
-#             param($sender, $eventArgs)
-#             [System.Windows.Forms.Clipboard]::SetText($sender.Tag.Text)
-#         })
-#     $tableLayout.Controls.Add($copyButton, 5, $tableLayout.RowCount - 1)
-# }
-
-# MemberOf needs a special button
-# $tableLayout.RowCount++
-# $tableLayout.Controls.Add((New-Object System.Windows.Forms.Label -Property @{Text = "MemberOf:" }), 0, $tableLayout.RowCount - 1)
-
-# $textMemberOf = New-Object System.Windows.Forms.TextBox -Property @{ReadOnly = $true; Width = 300 }
-# $tableLayout.SetColumnSpan($textMemberOf, 4)
-# $tableLayout.Controls.Add($textMemberOf, 1, $tableLayout.RowCount - 1)
-# $textBoxes['MemberOf'] = $textMemberOf
-
-# $moreButton = New-Object System.Windows.Forms.Button -Property @{Text = 'More...' }
-# $moreButton.tag = $textMemberOf
-# $moreButton.Add_Click({
-#         param($sender, $eventArgs)
-#         $groups = (Get-ADUser $textBoxes['Username'].Text -Properties MemberOf).MemberOf
-#         $groupNames = @()
-#         foreach ($group in $groups) {
-#             $groupNames += (Get-ADGroup $group).Name
-#         }
-#         . $PSScriptRoot\MoreInfoWindow.ps1 $groupNames "AD Groups - $($textBoxes['Username'].Text)"
-#     })
-# $tableLayout.Controls.Add($moreButton, 5, $tableLayout.RowCount - 1)
-
 # Place LockedOut and PasswordExpired on the same row
 $tableLayout.RowCount++
 $tableLayout.Controls.Add((New-Object System.Windows.Forms.Label -Property @{Text = "LockedOut:" }), 0, $tableLayout.RowCount - 1)
@@ -209,7 +175,10 @@ $textBoxes["DaysSincePassword"] = $textDaysSincePassword
 $toolPasswordExpiry = New-Object System.Windows.Forms.ToolTip
 $toolPasswordExpiry.SetToolTip($textDaysSincePassword, "Passwords expire after 90 days.")
 
-# Take action on accounts
+#endregion
+
+#region Take action on accounts
+
 $tableLayout.RowCount++
 $accountActions = [ordered]@{
     Unlock        = New-Object System.Windows.Forms.Button -Property @{Text = "Unlock Account" }
@@ -227,6 +196,8 @@ foreach ($action in $accountActions.Keys) {
 }
 $tableLayout.SetColumnSpan($buttonFlow, 6)
 $tableLayout.Controls.Add($buttonFlow, 0, $tableLayout.RowCount - 1)
+
+#endregion
 
 #region Button Events
 
@@ -256,6 +227,7 @@ $accountActions['Unlock'].Add_Click({
     })
 
 $accountActions['ResetPassword'].Add_Click({
+        #region Manager/User Prompt
         $sendToForm = [System.Windows.Forms.Form]::new()
         $sendToForm.Text = "Manager Or User"
         $sendToForm.Size = [System.Drawing.Size]::new(300, 150)
@@ -283,6 +255,7 @@ $accountActions['ResetPassword'].Add_Click({
         $sendToForm.Controls.Add($btnManager)
         $sendToForm.Controls.Add($btnUser)
         $userButton = $sendToForm.ShowDialog()
+        #endregion
         $userChoice = ""
 
         if ($userButton -eq [System.Windows.Forms.DialogResult]::OK) {
@@ -364,8 +337,8 @@ $buttonSearch.Add_Click($setFieldValues)
 # })
 
 #endregion
-if ($InitialUsername) {
-    $textUser.Text = $InitialUsername
+if ($Username) {
+    $textUser.Text = $Username
     $setFieldValues.Invoke()
 }
 
