@@ -101,10 +101,16 @@ $adtSession = @{
     AppRevision                 = '01'
     AppSuccessExitCodes         = @(0)
     AppRebootExitCodes          = @(1641, 3010)
-    AppProcessesToClose         = @('regedit', @{ Name = 'msconfig'; Description = 'System Configuration (msconfig)' }, '7zFM')
+    AppProcessesToClose         = @(
+        # defaults
+        'regedit'
+        @{ Name = 'msconfig'; Description = 'System Configuration (msconfig)' }
+        # /defaults
+        '7zFM'
+    )
     AppScriptVersion            = '1.0.0'
     AppScriptDate               = '2025-07-08'
-    AppScriptAuthor             = 'furrob'
+    AppScriptAuthor             = 'baile'
     RequireAdmin                = $true
 
     # Install Titles (Only set here to override defaults set by the toolkit).

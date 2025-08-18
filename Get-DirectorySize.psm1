@@ -27,7 +27,7 @@ function Get-DirectorySize {
             {Test-Path $_}
             # ErrorMessage = "`n{0} is not a valid path. Validate that the path exists and try again."
         )]
-        [System.IO.DirectoryInfo[]]$Path = (Get-ChildItem $PWD.Path -Directory),
+        [string]$Path = $PWD.Path,
 
         [ValidateSet('B','KB','MB','GB','TB','Auto')]
         [PSDefaultValue(Help='Auto')]
@@ -39,10 +39,11 @@ function Get-DirectorySize {
         Write-Debug "`$preOutput type before is $($preOutput.GetType())"
     }
     process {
-        $Path | ForEach-Object {
+        $allFolders = Get-ChildItem $Path -Directory
+        $allFolders | ForEach-Object {
             $obj = [PSCustomObject]@{
                 PSTypeName = "Custom.DirectorySize"
-                Name = $_
+                Name = $_.BaseName
                 Length = Get-ChildItem $_ -Recurse | Where-Object length -ne $null |
                     Select-Object -ExpandProperty Length | Measure-Object -sum |
                     Select-Object -ExpandProperty Sum
@@ -87,7 +88,9 @@ function Get-DirectorySize {
         }
         Remove-TypeData -TypeName Custom.DirectorySize -ErrorAction SilentlyContinue
         Update-TypeData -TypeName Custom.DirectorySize -DefaultDisplayPropertySet "Name","Size ($SizeType)"
-        return $output
+        Write-Host "Directory sizes in $Path" -ForegroundColor Green
+        Write-Host "Total size: $(($output."$SizeType" | Measure-Object -Sum).Sum) $SizeType" -ForegroundColor Blue
+        $output
     }
 }
 
