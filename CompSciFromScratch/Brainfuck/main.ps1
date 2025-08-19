@@ -2,7 +2,7 @@
 
 [CmdletBinding()]
 param (
-    [Parameter()]
+    [Parameter(Position=1)]
     [string]$BrainFuckFile = './test.bf'
 )
 
